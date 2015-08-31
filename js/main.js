@@ -35,3 +35,38 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+// extended function to create html nodes
+$.extend({
+    el: function(el, props) {
+        var $el = $(document.createElement(el));
+        $el.attr(props);
+        return $el;
+    }
+});
+
+var username = "juanitodread";
+$(function getGithubRepos() {
+    var service = "https://api.github.com/users/" + username + "/repos";
+
+    $.getJSON( service, function(response) {
+        var sorted = response.sort(function(x, y){
+            return new Date(x.updated_at).getTime() < new Date(y.updated_at).getTime();
+        });
+
+        $.each(sorted, function(key, val) {
+            var projects = $('*[data-github="projects"]');
+            projects.append(
+                $.el("div", {"class":"col-sm-4 portfolio-item"})
+                    .append($.el("a", {"class":"portfolio-link", "data-toggle":"modal" })
+                        .append($.el("div", {"class": "caption"})
+                            .append($.el("i", {"class": "fa fa-search-plus fa-3x"})
+                                .append(val.name)))
+                        .append($.el("img", {"class":"img-responsive", "alt":val.name})))
+            );
+        });
+    });
+
+});
+
+
