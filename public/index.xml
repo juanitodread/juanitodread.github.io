@@ -3,31 +3,11 @@
   <channel>
       <title> on Juan Sandoval </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://localhost:1313/</link>
+    <link>http://juanitodread.github.io/</link>
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <updated>Wed, 30 Sep 2015 00:38:49 CDT</updated>
-    
-    <item>
-      <title>first post</title>
-      <link>http://localhost:1313/post/first-post/</link>
-      <pubDate>Wed, 30 Sep 2015 00:38:49 CDT</pubDate>
-      <author>Juan Antonio Sandoval Delgado</author>
-      <guid>http://localhost:1313/post/first-post/</guid>
-      <description>&lt;p&gt;This is mi first post&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>cv</title>
-      <link>http://localhost:1313/pages/cv/</link>
-      <pubDate>Wed, 30 Sep 2015 00:36:56 CDT</pubDate>
-      <author>Juan Antonio Sandoval Delgado</author>
-      <guid>http://localhost:1313/pages/cv/</guid>
-      <description>&lt;p&gt;This is mi CV&lt;/p&gt;
-</description>
-    </item>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
   </channel>
 </rss>
