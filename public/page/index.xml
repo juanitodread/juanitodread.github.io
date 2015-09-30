@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Pages on Juan Sandoval </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://localhost:1313/page/</link>
+    <language>en-us</language>
+    <author>Juan Antonio Sandoval Delgado</author>
+    <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
+    <updated>Tue, 29 Sep 2015 21:17:33 CDT</updated>
+    
+    <item>
+      <title>about</title>
+      <link>http://localhost:1313/page/about/</link>
+      <pubDate>Tue, 29 Sep 2015 21:17:33 CDT</pubDate>
+      <author>Juan Antonio Sandoval Delgado</author>
+      <guid>http://localhost:1313/page/about/</guid>
+      <description>
+
+&lt;h2 id=&#34;softwar-engineer:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Softwar engineer&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+baseurl = "http://juanitodread.github.io/"
+languageCode = "en-us"
+MetaDataFormat = "toml"
+contentdir = "content"
+publishdir = "public"
+builddrafts = false
+canonifyurls = true
+title = "Juan Sandoval"
+copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+
+
+[author]
+    name = "Juan Antonio Sandoval Delgado"
+
+[indexes]
+       category = "categories"
+       tag = "tags"
+[Params]
+      AuthorName = "Juan Sandoval"
+      github = "juanitodread"
+      flickr = "juanitodread"
+      twitter = "juanitodread"
+      email = "juanitodread@gmail.com"
+      description = "Software Engineer"
+      cv = "/pages/cv"
+      muut = "juanitodread"
+      linkedin = "juanitodread"
+      # cover = "/images/background-cover.jpg"
+      # logo = "/img/logo-1.jpg"
