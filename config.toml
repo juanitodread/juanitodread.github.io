@@ -4,7 +4,7 @@ MetaDataFormat = "toml"
 contentdir = "content"
 publishdir = "public"
 builddrafts = false
-canonifyurls = true
+canonifyurls = false
 title = "Juan Sandoval"
 copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 

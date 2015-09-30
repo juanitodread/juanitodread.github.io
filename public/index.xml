@@ -7,7 +7,27 @@
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <updated>Wed, 30 Sep 2015 00:38:49 CDT</updated>
+    
+    <item>
+      <title>first post</title>
+      <link>http://juanitodread.github.io/post/first-post/</link>
+      <pubDate>Wed, 30 Sep 2015 00:38:49 CDT</pubDate>
+      <author>Juan Antonio Sandoval Delgado</author>
+      <guid>http://juanitodread.github.io/post/first-post/</guid>
+      <description>&lt;p&gt;This is mi first post&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>cv</title>
+      <link>http://juanitodread.github.io/pages/cv/</link>
+      <pubDate>Wed, 30 Sep 2015 00:36:56 CDT</pubDate>
+      <author>Juan Antonio Sandoval Delgado</author>
+      <guid>http://juanitodread.github.io/pages/cv/</guid>
+      <description>&lt;p&gt;This is mi CV&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>
