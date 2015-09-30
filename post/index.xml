@@ -3,7 +3,7 @@
   <channel>
       <title>Posts on Juan Sandoval </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://localhost:1313/post/</link>
+    <link>http://juanitodread.github.io/post/</link>
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
@@ -11,10 +11,10 @@
     
     <item>
       <title>first post</title>
-      <link>http://localhost:1313/post/first-post/</link>
+      <link>http://juanitodread.github.io/post/first-post/</link>
       <pubDate>Wed, 30 Sep 2015 00:38:49 CDT</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
-      <guid>http://localhost:1313/post/first-post/</guid>
+      <guid>http://juanitodread.github.io/post/first-post/</guid>
       <description>&lt;p&gt;This is mi first post&lt;/p&gt;
 </description>
     </item>
