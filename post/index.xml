@@ -10,12 +10,34 @@
     <updated>Wed, 30 Sep 2015 00:38:49 CDT</updated>
     
     <item>
-      <title>first post</title>
-      <link>http://juanitodread.github.io/post/first-post/</link>
+      <title>Beginning</title>
+      <link>http://juanitodread.github.io/post/beginning/</link>
       <pubDate>Wed, 30 Sep 2015 00:38:49 CDT</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
-      <guid>http://juanitodread.github.io/post/first-post/</guid>
-      <description>&lt;p&gt;This is mi first post&lt;/p&gt;
+      <guid>http://juanitodread.github.io/post/beginning/</guid>
+      <description>&lt;p&gt;Well these are my first steps with &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;. I really like how &lt;strong&gt;hugo&lt;/strong&gt; is designed and how you have to work with it.&lt;/p&gt;
+
+&lt;p&gt;I have an old blog with Blogger but at this point I decided to use &lt;em&gt;github pages&lt;/em&gt; and work with hugo to generate static content like this ;).&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m still learning hugo due today I just know the basics &lt;em&gt;(really basics)&lt;/em&gt; steps in hugo.&lt;/p&gt;
+
+&lt;p&gt;I hope add more and more content to this blog. My idea is to write about software development and share a lot of my knowledge. My next steps are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Enable comments&lt;/li&gt;
+&lt;li&gt;Start my resume&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And here we have a bit of code :D&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;// Hello world in Scala
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    println(&amp;quot;Hello world!!!... and welcome to this blog ;)&amp;quot;)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
