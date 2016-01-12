@@ -3,29 +3,132 @@
   <channel>
       <title> on Juan Sandoval </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://juanitodread.github.io/</link>
+    <link>http://localhost:1313/</link>
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <updated>Wed, 30 Sep 2015 00:38:49 CDT</updated>
+    <updated>Fri, 02 Oct 2015 00:28:02 CDT</updated>
     
     <item>
-      <title>first post</title>
-      <link>http://juanitodread.github.io/post/first-post/</link>
-      <pubDate>Wed, 30 Sep 2015 00:38:49 CDT</pubDate>
+      <title>Resume</title>
+      <link>http://localhost:1313/pages/cv/</link>
+      <pubDate>Fri, 02 Oct 2015 00:28:02 CDT</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
-      <guid>http://juanitodread.github.io/post/first-post/</guid>
-      <description>&lt;p&gt;This is mi first post&lt;/p&gt;
+      <guid>http://localhost:1313/pages/cv/</guid>
+      <description>
+
+&lt;h1 id=&#34;juan-antonio-sandoval-delgado:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Juan Antonio Sandoval Delgado&lt;/h1&gt;
+
+&lt;p&gt;Guadalajara, Jalisco. México.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;mailto:juanitodread@gmail.com&#34;&gt;juanitodread[at]gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/users/362937/juanitodread&#34;&gt;http://stackoverflow.com/users/juanitodread&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dzone.com/users/700879/Jvan.html?sort=articles&#34;&gt;https://dzone.com/users/juanitodread&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;software-engineer:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Software engineer&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m a graduate of &lt;a href=&#34;http://www.ittepic.edu.mx/&#34;&gt;Instituto Tecnológico de Tepic&lt;/a&gt; in México at 2009, where I studied Computer Systems Engineering. Since 2009 I have been working as software developer mainly in Java platform, focused in web technologies and in the last years I started to work with Scala language. Actually I work at IBM México. My expertise areas cover Java, Javascript, Dojo, Spring and Scala.&lt;/p&gt;
+
+&lt;h2 id=&#34;ibm-guadalajara-jalisco:7e6115c4d209379befeb3847e8c4905b&#34;&gt;IBM (Guadalajara, Jalisco)&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Software Developer (Technical lead)&lt;/strong&gt; &lt;em&gt;(2012 - Present)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Development of the interface management for the storage product &lt;a href=&#34;http://www-03.ibm.com/systems/storage/tape/ts4500/index.html&#34;&gt;IBM TS4500&lt;/a&gt;. The interface management is a web based GUI to interact with the tape library.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Design and implementation of the data access layer of the application and implementation of a connection pool.&lt;/li&gt;
+&lt;li&gt;Implementation of Java JAAS module to support a generic authentication and authorization for the application. Now the web application supports local authentication (data base) and remote authentication (LDAP and Kerberos).&lt;/li&gt;
+&lt;li&gt;Implementation of a cache layer in the backend to improve performance and life cycle of Java objects. The cache framework implemented was Apache JCS.&lt;/li&gt;
+&lt;li&gt;Design and implementation of widgets with Dojo Toolkit and Javascript for the front end.&lt;/li&gt;
+&lt;li&gt;Design and implementation of a mobile application to track user&amp;rsquo;s checkouts at office. The technologies used were NodeJS, Cloudant, IBM Bluemix and Apache Cordova.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;atalaya-systems-a4sys-guadalajara-jalisco:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Atalaya Systems - A4Sys (Guadalajara, Jalisco)&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;http://www.atalayasystems.com/&#34;&gt;Atalaya Systems&lt;/a&gt; now A4Sys, is a mexican company focused on financial services for banks&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Software Developer&lt;/strong&gt; (2010 - 2012)&lt;/p&gt;
+
+&lt;p&gt;Development of web application for the process of pre-initialization of credits accounts for banks.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Development of new modules for the bank application with Java Servlet technology (JSP), Spring Framework and Hibernate for the backend.&lt;/li&gt;
+&lt;li&gt;Development of SOAP and REST services for the communication between the application and other external entities.&lt;/li&gt;
+&lt;li&gt;Technical leader in the implementation and roadmap in the use of web technologies used in the application.&lt;/li&gt;
+&lt;li&gt;Use of JQuery and dynamic web for the front end.&lt;/li&gt;
+&lt;li&gt;Development of batch process that are scheduled for running in a low traffic moment at the bank daily process.&lt;/li&gt;
+&lt;li&gt;Development of stored procedures in Oracle data base.&lt;/li&gt;
+&lt;li&gt;Development of reports in JasperReports.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;medisist-guadalajara-jalisco:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Medisist (Guadalajara, Jalisco)&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;http://www.medisist.com.mx/&#34;&gt;Medisist&lt;/a&gt; is a mexican company focused on the administration of hospitals&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Software Developer&lt;/strong&gt; (2009 - 2010)&lt;/p&gt;
+
+&lt;p&gt;Development of desktop application in .Net and Java for the administration of hospitals.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Migration of the module of ophthalmology from VB6 application to the .Net Framework (3.0)&lt;/li&gt;
+&lt;li&gt;Development of stored procedures in SQLServer.&lt;/li&gt;
+&lt;li&gt;Development of reports in Crystal Reports.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;education-and-training:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Education and training&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Certifications&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Oracle Certified Expert, Java EE 6 Web Component Developer&lt;/li&gt;
+&lt;li&gt;Oracle Certified Expert, Java EE 6 Web Services Developer&lt;/li&gt;
+&lt;li&gt;Oracle Certified Professional, Java SE 6 Programmer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Courses&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;M101J: MongoDB for Java Developers&lt;/li&gt;
+&lt;li&gt;Java SE 8 Lambdas and Streams&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Training&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&#34;float: left;&#34; src=&#34;https://projecteuler.net/profile/juanitodread.png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>cv</title>
-      <link>http://juanitodread.github.io/pages/cv/</link>
-      <pubDate>Wed, 30 Sep 2015 00:36:56 CDT</pubDate>
+      <title>First post</title>
+      <link>http://localhost:1313/post/first-post/</link>
+      <pubDate>Wed, 30 Sep 2015 00:38:49 CDT</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
-      <guid>http://juanitodread.github.io/pages/cv/</guid>
-      <description>&lt;p&gt;This is mi CV&lt;/p&gt;
+      <guid>http://localhost:1313/post/first-post/</guid>
+      <description>&lt;p&gt;Well these are my first steps with &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;. I really like how &lt;strong&gt;hugo&lt;/strong&gt; is designed and how you have to work with it.&lt;/p&gt;
+
+&lt;p&gt;I have an old blog with Blogger but at this point I decided to use &lt;em&gt;github pages&lt;/em&gt; and work with hugo to generate static content like this ;).&lt;/p&gt;
+
+&lt;p&gt;I’m still learning hugo due today I just know the basics &lt;em&gt;(really basics)&lt;/em&gt; steps in hugo.&lt;/p&gt;
+
+&lt;p&gt;I hope add more and more content to this blog. My idea is to write about software development and share a lot of my knowledge. My next steps are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Enable comments&lt;/li&gt;
+&lt;li&gt;Start my resume&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And here we have a bit of code :D&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Hello world in Scala
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    println(&amp;quot;Hello world!!!... and welcome to this blog ;)&amp;quot;)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
