@@ -3,7 +3,7 @@
   <channel>
       <title>Development on Juan Sandoval </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://localhost:1313/tags/development/</link>
+    <link>http://juanitodread.github.io/tags/development/</link>
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
@@ -11,10 +11,10 @@
     
     <item>
       <title>First post</title>
-      <link>http://localhost:1313/post/first-post/</link>
+      <link>http://juanitodread.github.io/post/first-post/</link>
       <pubDate>Wed, 30 Sep 2015 00:38:49 CDT</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
-      <guid>http://localhost:1313/post/first-post/</guid>
+      <guid>http://juanitodread.github.io/post/first-post/</guid>
       <description>&lt;p&gt;Well these are my first steps with &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;. I really like how &lt;strong&gt;hugo&lt;/strong&gt; is designed and how you have to work with it.&lt;/p&gt;
 
 &lt;p&gt;I have an old blog with Blogger but at this point I decided to use &lt;em&gt;github pages&lt;/em&gt; and work with hugo to generate static content like this ;).&lt;/p&gt;
