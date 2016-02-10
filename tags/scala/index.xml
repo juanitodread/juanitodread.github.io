@@ -7,7 +7,43 @@
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <updated>Wed, 30 Sep 2015 00:38:49 CDT</updated>
+    <updated>Wed, 10 Feb 2016 10:28:48 CST</updated>
+    
+    <item>
+      <title>Scalariform on a Play project</title>
+      <link>http://juanitodread.github.io/post/scalariform-playframework-post/</link>
+      <pubDate>Wed, 10 Feb 2016 10:28:48 CST</pubDate>
+      <author>Juan Antonio Sandoval Delgado</author>
+      <guid>http://juanitodread.github.io/post/scalariform-playframework-post/</guid>
+      <description>&lt;p&gt;In the last days I have been playing with some powerful tools for start web applications in a fast and easy way that resides on the Cloud. These tools are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.playframework.com/&#34;&gt;Playframework&lt;/a&gt; As my web framework. It is really easy to start a web application on Play and is oriented to REST. Play supports Scala or Java as a language (I recommend to use Scala).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.heroku.com/home&#34;&gt;Heroku&lt;/a&gt; It is really simple to deploy a Scala application. I tried Openshift but is more complicated since they don&amp;rsquo;t have an environment for Scala (You need to use a DIY).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mongodb.org/&#34;&gt;MongoDB&lt;/a&gt; Really easy and powerful NoSQL database.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can check the app &lt;a href=&#34;https://crud-lab.herokuapp.com/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finally after some attempts I was able to run my sample application. I was using Atom as my code editor (I needed to add a plugin to recognize the Scala syntax). I can say that Atom is a really good tool to edit Scala files but it doesn&amp;rsquo;t have plugins to format code like Eclipse or Intellij IDEA. Fortunately exists a tool in Scala (&lt;a href=&#34;https://github.com/scala-ide/scalariform&#34;&gt;Scalariform&lt;/a&gt;) to format the code. You can run as an external tool or include in your SBT (Also is the plugin that Eclipse uses to format the code).&lt;/p&gt;
+
+&lt;p&gt;I choosed to run Scalariform from my SBT script. The default behavior is that Scalariform is executed when the code is compiled but you can change the default behavior. I use the default behavior.&lt;/p&gt;
+
+&lt;p&gt;The only thing you need to do is add the Scalariform plugin into the plugins.sbt file. The file is located in:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root-play-project/project/plugins.sbt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To use the plugin just add this line in &lt;em&gt;plugins.sbt&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;addSbtPlugin(&amp;quot;org.scalariform&amp;quot; % &amp;quot;sbt-scalariform&amp;quot; % &amp;quot;1.6.0&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And that&amp;rsquo;s all!.&lt;/p&gt;
+
+&lt;p&gt;Now on every project compilation Scalariform will format all the Scala code :D. You can modify the default settings of Scalariform if you want a different style. The recommendation is to use the &lt;a href=&#34;http://docs.scala-lang.org/style/declarations.html&#34;&gt;Scala Style Guide&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>First post</title>
