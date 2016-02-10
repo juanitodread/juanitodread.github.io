@@ -2,8 +2,8 @@
 date = "2015-09-30T00:38:49-05:00"
 title = "First post"
 description = "This is a sample first post"
-tags = ["Development", "Scala"]
-categories = ["Work"]
+tags = ["Scala"]
+categories = ["Development"]
 slug = "first-post"
 +++
 
