@@ -30,7 +30,8 @@ The first step is create our pizza model, we will use **case classes**.
 
 ``` Scala
 case class Pizza(ingredients: List[String],
-                 cheese: String = "Mozzarella")
+                 cheese: String = "Mozzarella",
+                 size: String = "medium")
 ```
 
 Now, any developer can use our pizza class to create pizzas :D
@@ -39,5 +40,9 @@ Let's create three different pizzas:
 ``` Scala
 val italian = Pizza(List("Pepperoni", "Mushrooms"))
 
-val hawain = Pizza(List("Ham", "Pineapple"))
+val hawaian = Pizza(List("Ham", "Pineapple"), size = "Small")
+
+val meat = Pizza(List("Ham", "Bacon"), cheese = "Cheddar")
 ```
+
+As you can see, now you can create different kind of pizzas without problems.
