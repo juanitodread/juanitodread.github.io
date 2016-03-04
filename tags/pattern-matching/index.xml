@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Pattern Matching on Juan Sandoval </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://juanitodread.github.io/tags/pattern-matching/</link>
+    <language>en-us</language>
+    <author>Juan Antonio Sandoval Delgado</author>
+    <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
+    <updated>Thu, 03 Mar 2016 23:47:44 CST</updated>
+    
+    <item>
+      <title>Builder pattern in Scala</title>
+      <link>http://juanitodread.github.io/post/builder-pattern-in-scala/</link>
+      <pubDate>Thu, 03 Mar 2016 23:47:44 CST</pubDate>
+      <author>Juan Antonio Sandoval Delgado</author>
+      <guid>http://juanitodread.github.io/post/builder-pattern-in-scala/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;Builder Pattern&lt;/em&gt; is a design pattern for create objects. The builder pattern allows to the user the creation of an object that requires a lot of parameters in its constructor.&lt;/p&gt;
+
+&lt;p&gt;The problem with objects that requires different parameters to be constructed is that the programmer will need to overload the constructor to support all the distinct combinations of parameters.&lt;/p&gt;
+
+&lt;p&gt;In &lt;em&gt;Java&lt;/em&gt; is very common to create a new class (the builder) object that will receives all the parameters and builds a new object with the parameters received. I think the most known builder in Java is &lt;strong&gt;StringBuilder&lt;/strong&gt;. In &lt;strong&gt;Scala&lt;/strong&gt; we can use two Scala features to support a very similar behavior:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Case classes&lt;/li&gt;
+&lt;li&gt;Pattern matching &lt;em&gt;(Optional, Pattern matching will allow us to restrict invalid object creations)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A very common and simple example for builder objects is to represent pizzas :D. Suppose we need to create pizzas, our pizzas can have different ingredients:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Mozzarella&lt;/li&gt;
+&lt;li&gt;Pepperoni&lt;/li&gt;
+&lt;li&gt;Bacon&lt;/li&gt;
+&lt;li&gt;Mushrooms&lt;/li&gt;
+&lt;li&gt;Ham&lt;/li&gt;
+&lt;li&gt;Pineapple&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first step is create our pizza model, we will use &lt;strong&gt;case classes&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Scala&#34;&gt;case class Pizza(ingredients: List[String],
+                 cheese: String = &amp;quot;Mozzarella&amp;quot;,
+                 size: String = &amp;quot;medium&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, any developer can use our pizza class to create pizzas :D&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s create three different pizzas:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Scala&#34;&gt;val italian = Pizza(List(&amp;quot;Pepperoni&amp;quot;, &amp;quot;Mushrooms&amp;quot;))
+
+val hawaian = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Pineapple&amp;quot;), size = &amp;quot;Small&amp;quot;)
+
+val meat = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Bacon&amp;quot;), cheese = &amp;quot;Cheddar&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, now you can create different kind of pizzas without problems.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
