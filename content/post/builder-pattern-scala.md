@@ -1,6 +1,5 @@
 +++
-date = "2016-02-23T23:47:44-06:00"
-draft = true
+date = "2016-03-03T23:47:44-06:00"
 title = "Builder pattern in Scala"
 description = "How to apply the Builder design pattern with Scala"
 tags = ["Scala", "Design Patterns", "Pattern Matching"]
