@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Tags &middot; Juan Sandoval </title>
+    <title> Scalariform on a Play project &middot; Juan Sandoval </title>
     
     <link rel="stylesheet" type="text/css" href="http://juanitodread.github.io//css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="http://juanitodread.github.io//css/lightGallery.css" />
@@ -12,14 +12,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="/favicon.ico">
     
-    <link href="http://juanitodread.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="Juan Sandoval" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Juan Sandoval" />
     
     <script src="http://juanitodread.github.io//js/jquery.min.js"></script>
     <script src="http://juanitodread.github.io//js/main.min.js">
     </script>
 </head>
 
-<body>
+  <body>
     <div id="scriptHeader">
     <span class="mobile btn-mobile-menu">
             <i class="fa fa-bars btn-mobile-menu__icon"></i>
@@ -27,9 +27,7 @@
     </span>
     <header class="
         
-        
             panel-cover panel-cover--collapsed
-        
         " >
     <div class="panel-main">
         <div class="panel-main__inner panel-inverted">
@@ -135,55 +133,63 @@
 </noscript>
 
     <div class="content-wrapper">
-        <div class="content-wrapper__inner">
-            <section id="main">
-              <div>
-                <h1 id="title">Tags</h1>
-                <style type="text/css">
-                        #double ul{
-                          width:760px;
-                          margin-bottom:20px;
-                          overflow:hidden;
-                        }
-                        #double li{
-                          line-height:1.5em;
-                          float:left;
-                          display:inline;
-                          width:50%;
-                        }
-                </style>
-                <ul id="double">
-                
-                
-                    <li>
-                        <a href="design-patterns">design-patterns</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="pattern-matching">pattern-matching</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="performance">performance</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="playframework">playframework</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="scala">scala</a> 4
-                    </li>
-                
-                    <li>
-                        <a href="scalariform">scalariform</a> 1
-                    </li>
-                
-               </ul>
-              </div>
-            </section>
-            </div>
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Scalariform on a Play project</h1>
+          <span class="post-date">Wed, Feb 10, 2016</span>
+          <p>In the last days I have been playing with some powerful tools for start web applications in a fast and easy way that resides on the Cloud. These tools are:</p>
+
+<ul>
+<li><a href="https://www.playframework.com/">Playframework</a> As my web framework. It is really easy to start a web application on Play and is oriented to REST. Play supports Scala or Java as a language (I recommend to use Scala).</li>
+<li><a href="https://www.heroku.com/home">Heroku</a> It is really simple to deploy a Scala application. I tried Openshift but is more complicated since they don&rsquo;t have an environment for Scala (You need to use a DIY).</li>
+<li><a href="https://www.mongodb.org/">MongoDB</a> Really easy and powerful NoSQL database.</li>
+</ul>
+
+<p>You can check the app <a href="https://crud-lab.herokuapp.com/">here</a>.</p>
+
+<p>Finally after some attempts I was able to run my sample application. I was using Atom as my code editor (I needed to add a plugin to recognize the Scala syntax). I can say that Atom is a really good tool to edit Scala files but it doesn&rsquo;t have plugins to format code like Eclipse or Intellij IDEA. Fortunately exists a tool in Scala (<a href="https://github.com/scala-ide/scalariform">Scalariform</a>) to format the code. You can run as an external tool or include in your SBT (Also is the plugin that Eclipse uses to format the code).</p>
+
+<p>I choosed to run Scalariform from my SBT script. The default behavior is that Scalariform is executed when the code is compiled but you can change the default behavior. I use the default behavior.</p>
+
+<p>The only thing you need to do is add the Scalariform plugin into the plugins.sbt file. The file is located in:</p>
+
+<pre><code>root-play-project/project/plugins.sbt
+</code></pre>
+
+<p>To use the plugin just add this line in <em>plugins.sbt</em></p>
+
+<pre><code>addSbtPlugin(&quot;org.scalariform&quot; % &quot;sbt-scalariform&quot; % &quot;1.6.0&quot;)
+</code></pre>
+
+<p>And that&rsquo;s all!.</p>
+
+<p>Now on every project compilation Scalariform will format all the Scala code :D. You can modify the default settings of Scalariform if you want a different style. The recommendation is to use the <a href="http://docs.scala-lang.org/style/declarations.html">Scala Style Guide</a></p>
+
         </div>
-    </body>
-    
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=Scalariform%20on%20a%20Play%20project-http%3a%2f%2fjuanitodread.github.io%2fpost%2fscalariform-playframework-post%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-3x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fjuanitodread.github.io%2fpost%2fscalariform-playframework-post%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-3x"></span></a>
+<a href="https://plus.google.com/share?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2fscalariform-playframework-post%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-3x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fjuanitodread.github.io%2fpost%2fscalariform-playframework-post%2f&title=Scalariform%20on%20a%20Play%20project" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-3x"></span></a>
+<a href="http://www.reddit.com/submit?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2fscalariform-playframework-post%2f" target="_blank" title="Reddit" class="reddit"><span class="fa fa-reddit-square fa-3x"></span></a>
+<a href="http://www.stumbleupon.com/submit?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2fscalariform-playframework-post%2f" target="_blank" title="StumbleUpon" class="stumbleupon"><span class="fa fa-stumbleupon fa-3x">
+</span></a>
+</div>
+        
+<section class="post-comments">
+<a class="muut" href="https://muut.com/i/juanitodread/comments:Scalariform%20on%20a%20Play%20project">Comments</a>
+<script src="//cdn.muut.com/1/moot.min.js"></script>
+</section>
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>

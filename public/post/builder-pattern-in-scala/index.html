@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Tags &middot; Juan Sandoval </title>
+    <title> Builder pattern in Scala &middot; Juan Sandoval </title>
     
     <link rel="stylesheet" type="text/css" href="http://juanitodread.github.io//css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="http://juanitodread.github.io//css/lightGallery.css" />
@@ -12,14 +12,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="/favicon.ico">
     
-    <link href="http://juanitodread.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="Juan Sandoval" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Juan Sandoval" />
     
     <script src="http://juanitodread.github.io//js/jquery.min.js"></script>
     <script src="http://juanitodread.github.io//js/main.min.js">
     </script>
 </head>
 
-<body>
+  <body>
     <div id="scriptHeader">
     <span class="mobile btn-mobile-menu">
             <i class="fa fa-bars btn-mobile-menu__icon"></i>
@@ -27,9 +27,7 @@
     </span>
     <header class="
         
-        
             panel-cover panel-cover--collapsed
-        
         " >
     <div class="panel-main">
         <div class="panel-main__inner panel-inverted">
@@ -135,55 +133,77 @@
 </noscript>
 
     <div class="content-wrapper">
-        <div class="content-wrapper__inner">
-            <section id="main">
-              <div>
-                <h1 id="title">Tags</h1>
-                <style type="text/css">
-                        #double ul{
-                          width:760px;
-                          margin-bottom:20px;
-                          overflow:hidden;
-                        }
-                        #double li{
-                          line-height:1.5em;
-                          float:left;
-                          display:inline;
-                          width:50%;
-                        }
-                </style>
-                <ul id="double">
-                
-                
-                    <li>
-                        <a href="design-patterns">design-patterns</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="pattern-matching">pattern-matching</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="performance">performance</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="playframework">playframework</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="scala">scala</a> 4
-                    </li>
-                
-                    <li>
-                        <a href="scalariform">scalariform</a> 1
-                    </li>
-                
-               </ul>
-              </div>
-            </section>
-            </div>
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Builder pattern in Scala</h1>
+          <span class="post-date">Thu, Mar 3, 2016</span>
+          <p>The <em>Builder Pattern</em> is a design pattern for create objects. The builder pattern allows to the user the creation of an object that requires a lot of parameters in its constructor.</p>
+
+<p>The problem with objects that requires different parameters to be constructed is that the programmer will need to overload the constructor to support all the distinct combinations of parameters.</p>
+
+<p>In <em>Java</em> is very common to create a new class (the builder) object that will receives all the parameters and builds a new object with the parameters received. I think the most known builder in Java is <strong>StringBuilder</strong>. In <strong>Scala</strong> we can use two Scala features to support a very similar behavior:</p>
+
+<ul>
+<li>Case classes</li>
+<li>Pattern matching <em>(Optional, Pattern matching will allow us to restrict invalid object creations)</em></li>
+</ul>
+
+<p>A very common and simple example for builder objects is to represent pizzas :D. Suppose we need to create pizzas, our pizzas can have different ingredients:</p>
+
+<ul>
+<li>Mozzarella</li>
+<li>Pepperoni</li>
+<li>Bacon</li>
+<li>Mushrooms</li>
+<li>Ham</li>
+<li>Pineapple</li>
+</ul>
+
+<p>The first step is create our pizza model, we will use <strong>case classes</strong>.</p>
+
+<pre><code class="language-Scala">case class Pizza(ingredients: List[String],
+                 cheese: String = &quot;Mozzarella&quot;,
+                 size: String = &quot;medium&quot;)
+</code></pre>
+
+<p>Now, any developer can use our pizza class to create pizzas :D</p>
+
+<p>Let&rsquo;s create three different pizzas:</p>
+
+<pre><code class="language-Scala">val italian = Pizza(List(&quot;Pepperoni&quot;, &quot;Mushrooms&quot;))
+
+val hawaian = Pizza(List(&quot;Ham&quot;, &quot;Pineapple&quot;), size = &quot;Small&quot;)
+
+val meat = Pizza(List(&quot;Ham&quot;, &quot;Bacon&quot;), cheese = &quot;Cheddar&quot;)
+</code></pre>
+
+<p>As you can see, now you can create different kind of pizzas without problems.</p>
+
         </div>
-    </body>
-    
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=Builder%20pattern%20in%20Scala-http%3a%2f%2fjuanitodread.github.io%2fpost%2fbuilder-pattern-in-scala%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-3x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fjuanitodread.github.io%2fpost%2fbuilder-pattern-in-scala%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-3x"></span></a>
+<a href="https://plus.google.com/share?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2fbuilder-pattern-in-scala%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-3x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fjuanitodread.github.io%2fpost%2fbuilder-pattern-in-scala%2f&title=Builder%20pattern%20in%20Scala" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-3x"></span></a>
+<a href="http://www.reddit.com/submit?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2fbuilder-pattern-in-scala%2f" target="_blank" title="Reddit" class="reddit"><span class="fa fa-reddit-square fa-3x"></span></a>
+<a href="http://www.stumbleupon.com/submit?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2fbuilder-pattern-in-scala%2f" target="_blank" title="StumbleUpon" class="stumbleupon"><span class="fa fa-stumbleupon fa-3x">
+</span></a>
+</div>
+        
+<section class="post-comments">
+<a class="muut" href="https://muut.com/i/juanitodread/comments:Builder%20pattern%20in%20Scala">Comments</a>
+<script src="//cdn.muut.com/1/moot.min.js"></script>
+</section>
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>
