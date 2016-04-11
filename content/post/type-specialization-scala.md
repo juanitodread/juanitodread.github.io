@@ -28,11 +28,11 @@ In this case, we have defined the generic class with two specialized types:
 
 * The second one is on the definition of the append method. Here we are adding two arguments: Int and Long. This means that the compiler will generate specialized classes versions of the class for the primitive types Int and Long (int, long).
 
-The compiler derives specialized definitions for all combinations of primitive types. Specialization is performed at the definition site in order to allows separate compilation. Each specialized class is derived from the original definition using specific combination of types and extends the generic class.
+The compiler derives specialized definitions for all combinations of primitive types. Specialization is performed at the definition site in order to allow separate compilation. Each specialized class is derived from the original definition using specific combination of types and extends the generic class.
 
 When a generic class is used, first is verified if the class has specialized versions, if so, the specialized class is used whenever possible and boxing process is not performed, incresing the performance of the application at runtime.
 
-In general I think specialization is a great idea to increase runtime performance in our Scala code, but it also has a cost in compilation time because the compiler needs to generate aditional specialized classes. So use @specialized judiciosly.
+In general I think specialization is a great idea to increase runtime performance in our Scala code, but it also has a cost in compilation time because the compiler needs to generate aditional specialized classes. So use **@specialized** judiciosly.
 
 Here are more detailed information about Type Specialization in Scala:
 
