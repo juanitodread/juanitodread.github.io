@@ -25,5 +25,5 @@ copyright = "This work is licensed under a Creative Commons Attribution-ShareAli
       cv = "/pages/cv"
       muut = "juanitodread"
       linkedin = "juanitodread"
-      # cover = "/images/background-cover.jpg"
-      # logo = "/img/logo-1.jpg"
+      cover = "/images/cover.jpg"
+      logo = "/images/me.jpg"
