@@ -3,7 +3,7 @@
   <channel>
       <title>Pages on Juan Sandoval </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://juanitodread.github.io/pages/</link>
+    <link>http://juanitodread.github.io/pages/index.xml</link>
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
@@ -17,7 +17,7 @@
       <guid>http://juanitodread.github.io/pages/cv/</guid>
       <description>
 
-&lt;h1 id=&#34;juan-antonio-sandoval-delgado:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Juan Antonio Sandoval Delgado&lt;/h1&gt;
+&lt;h1 id=&#34;juan-antonio-sandoval-delgado&#34;&gt;Juan Antonio Sandoval Delgado&lt;/h1&gt;
 
 &lt;p&gt;Guadalajara, Jalisco. México.&lt;/p&gt;
 
@@ -27,31 +27,74 @@
 &lt;li&gt;&lt;a href=&#34;https://dzone.com/users/700879/Jvan.html?sort=articles&#34;&gt;https://dzone.com/users/juanitodread&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;software-engineer:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Software engineer&lt;/h2&gt;
+&lt;h2 id=&#34;software-engineer&#34;&gt;Software engineer&lt;/h2&gt;
 
-&lt;p&gt;I&amp;rsquo;m a graduate of &lt;a href=&#34;http://www.ittepic.edu.mx/&#34;&gt;Instituto Tecnológico de Tepic&lt;/a&gt; in México at 2009, where I studied Computer Systems Engineering. Since 2009 I have been working as software developer mainly in Java platform, focused in web technologies and in the last years I started to work with Scala language. Actually I work at IBM México. My expertise areas cover Java, Javascript, Dojo, Spring and Scala.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m a graduate of &lt;a href=&#34;http://www.ittepic.edu.mx/&#34;&gt;Instituto Tecnológico de Tepic&lt;/a&gt; in México at 2009, where I studied Computer Systems Engineering.&lt;/p&gt;
 
-&lt;h2 id=&#34;ibm-guadalajara-jalisco:7e6115c4d209379befeb3847e8c4905b&#34;&gt;IBM (Guadalajara, Jalisco)&lt;/h2&gt;
+&lt;p&gt;Since 2009 I have been working as a software developer focused in web technologies with experience designing and building a variety of systems for services, financial and healthing sectors.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Software Developer (Technical lead)&lt;/strong&gt; &lt;em&gt;(2012 - Present)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I am a passionate engineer who enjoy to learn new technologies. I like to be involved in open source projects, courses and initiatives in my region.&lt;/p&gt;
 
-&lt;p&gt;Development of the interface management for the storage product &lt;a href=&#34;http://www-03.ibm.com/systems/storage/tape/ts4500/index.html&#34;&gt;IBM TS4500&lt;/a&gt;. The interface management is a web based GUI to interact with the tape library.&lt;/p&gt;
+&lt;p&gt;My expertise areas cover:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Web technologies&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;li&gt;Java / Scala&lt;/li&gt;
+&lt;li&gt;Javascript / Dojo / NodeJS&lt;/li&gt;
+&lt;li&gt;Spring&lt;/li&gt;
+&lt;li&gt;SQL&lt;/li&gt;
+&lt;li&gt;NoSQL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Current obsession:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reactive applications&lt;/li&gt;
+&lt;li&gt;Analytics&lt;/li&gt;
+&lt;li&gt;Functional programming&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;wizeline-guadalajara-jalisco&#34;&gt;Wizeline (Guadalajara, Jalisco)&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Software Engineer (Technical lead)&lt;/strong&gt; &lt;em&gt;(2016 - Present)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.wizeline.com/&#34;&gt;Wizeline&lt;/a&gt; offers product lifecycle software powered by customer intelligence.&lt;/p&gt;
+
+&lt;h2 id=&#34;ibm-guadalajara-jalisco&#34;&gt;IBM (Guadalajara, Jalisco)&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Software Developer (Technical lead) - TS4500&lt;/strong&gt; (2012 - 2016)&lt;/p&gt;
+
+&lt;p&gt;Development of the interface management for the &lt;a href=&#34;http://www-03.ibm.com/systems/storage/tape/ts4500/index.html&#34;&gt;IBM TS4500&lt;/a&gt; storage product. The interface management is a modern web based GUI that allows users administrate and monitoring a tape library. The tape library can work in a distributed environment where the GUI works in a multi node mode and replicates their content through every node.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Design and implementation of the data access layer of the application and implementation of a connection pool.&lt;/li&gt;
 &lt;li&gt;Implementation of Java JAAS module to support a generic authentication and authorization for the application. Now the web application supports local authentication (data base) and remote authentication (LDAP and Kerberos).&lt;/li&gt;
 &lt;li&gt;Implementation of a cache layer in the backend to improve performance and life cycle of Java objects. The cache framework implemented was Apache JCS.&lt;/li&gt;
-&lt;li&gt;Design and implementation of widgets with Dojo Toolkit and Javascript for the front end.&lt;/li&gt;
-&lt;li&gt;Design and implementation of a mobile application to track user&amp;rsquo;s checkouts at office. The technologies used were NodeJS, Cloudant, IBM Bluemix and Apache Cordova.&lt;/li&gt;
+&lt;li&gt;Design and implementation of widgets with Dojo Toolkit and Javascript for the front end.&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;atalaya-systems-a4sys-guadalajara-jalisco:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Atalaya Systems - A4Sys (Guadalajara, Jalisco)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Software Developer (Technical lead) - CleanDesk&lt;/strong&gt; (2015 - 2016)&lt;/p&gt;
+
+&lt;p&gt;Development of mobile application for &amp;ldquo;IBM Clean Desk&amp;rdquo; initiative.&lt;/p&gt;
+
+&lt;p&gt;I am a solid contributor designing and writing code for the back end and sometimes for the front end too. The back end is supported through a REST API in Node.js deployed on the cloud with the following technologies:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Node.js&lt;/li&gt;
+&lt;li&gt;Cloudant (NoSQL)&lt;/li&gt;
+&lt;li&gt;IBM Bluemix (SaaS)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And Apache Cordova for the front end.&lt;/p&gt;
+
+&lt;h2 id=&#34;atalaya-systems-a4sys-guadalajara-jalisco&#34;&gt;Atalaya Systems - A4Sys (Guadalajara, Jalisco)&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;&lt;a href=&#34;http://www.atalayasystems.com/&#34;&gt;Atalaya Systems&lt;/a&gt; now A4Sys, is a mexican company focused on financial services for banks&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Software Developer&lt;/strong&gt; (2010 - 2012)&lt;/p&gt;
 
-&lt;p&gt;Development of web application for the process of pre-initialization of credits accounts for banks.&lt;/p&gt;
+&lt;p&gt;Development of a web application for the process of pre-initialization of credits accounts for banks. The web application guides the bank officer through the process of analysis for customers and their credit score to determine in base a variety of variables if a customer is a candidate for a credit.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Development of new modules for the bank application with Java Servlet technology (JSP), Spring Framework and Hibernate for the backend.&lt;/li&gt;
@@ -63,13 +106,13 @@
 &lt;li&gt;Development of reports in JasperReports.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;medisist-guadalajara-jalisco:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Medisist (Guadalajara, Jalisco)&lt;/h2&gt;
+&lt;h2 id=&#34;medisist-guadalajara-jalisco&#34;&gt;Medisist (Guadalajara, Jalisco)&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;&lt;a href=&#34;http://www.medisist.com.mx/&#34;&gt;Medisist&lt;/a&gt; is a mexican company focused on the administration of hospitals&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Software Developer&lt;/strong&gt; (2009 - 2010)&lt;/p&gt;
 
-&lt;p&gt;Development of desktop application in .Net and Java for the administration of hospitals.&lt;/p&gt;
+&lt;p&gt;Development of an ERP for health services in private medical hospitals.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Migration of the module of ophthalmology from VB6 application to the .Net Framework (3.0)&lt;/li&gt;
@@ -77,21 +120,56 @@
 &lt;li&gt;Development of reports in Crystal Reports.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;education-and-training:7e6115c4d209379befeb3847e8c4905b&#34;&gt;Education and training&lt;/h2&gt;
+&lt;h2 id=&#34;other-projects&#34;&gt;Other projects&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/juanitodread/conway-game-of-life&#34;&gt;Conway&amp;rsquo;s Game of Life&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This application allows you to play with the Game of life of Conway. It is written in &lt;strong&gt;Scala&lt;/strong&gt;. And is open source.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://juanitodread.github.io&#34;&gt;Personal web site&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Is my personal web site and blog that is deployed over &lt;a href=&#34;https://pages.github.com&#34;&gt;Github Pages&lt;/a&gt; using &lt;strong&gt;Hugo&lt;/strong&gt; and &lt;strong&gt;Go&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/juanitodread/jturingmachinele&#34;&gt;jTuringMachine&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It is a tool that permits represent graphically Turing machines in the form of graphs, as well as to validate a text for the Turing machine represented in question. The application is written in &lt;strong&gt;Java&lt;/strong&gt;. And is open source.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;techtalks&#34;&gt;Techtalks&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Reactive Web Applications with Play and Scala&lt;/strong&gt; (Workshop | Tech Women Community Guadalajara - Guadalajara Java User Group)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Diseño y desarrollo de una REST API en la plataforma Java/Scala&lt;/strong&gt; (Workshop | Tech Women Community Guadalajara)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Adopting a JSR - JSR 367: API for JSON Binding (JSON-B)&lt;/strong&gt; (Initiative | Guadalajara Java User Group)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad en Java&lt;/strong&gt; (Talk | Guadalajara Java User Group)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;education-and-training&#34;&gt;Education and training&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Certifications&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Oracle Certified Expert, Java EE 6 Web Component Developer&lt;/li&gt;
-&lt;li&gt;Oracle Certified Expert, Java EE 6 Web Services Developer&lt;/li&gt;
-&lt;li&gt;Oracle Certified Professional, Java SE 6 Programmer&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Oracle Certified Expert, Java EE 6 Web Component Developer&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Oracle Certified Expert, Java EE 6 Web Services Developer&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Oracle Certified Professional, Java SE 6 Programmer&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Courses&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;M101J: MongoDB for Java Developers&lt;/li&gt;
-&lt;li&gt;Java SE 8 Lambdas and Streams&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Functional Programming Principles in Scala&lt;/strong&gt; - &lt;em&gt;Coursera (École Polytechnique Fédérale de Lausanne)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;M101x Introduction to MongoDB using the MEAN Stack&lt;/strong&gt; - &lt;em&gt;edX (MongoDB University)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enabling Technologies for Data Science and Analytics: The Internet of Things&lt;/strong&gt; - &lt;em&gt;edX (Columbia University)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Introduction to Linux&lt;/strong&gt; - &lt;em&gt;edX (Linux Foundation)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;M101J: MongoDB for Java Developers&lt;/strong&gt; - &lt;em&gt;MongoDB University&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Java SE 8 Lambdas and Streams&lt;/strong&gt; - &lt;em&gt;Oracle&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Training&lt;/strong&gt;&lt;/p&gt;

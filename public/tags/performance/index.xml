@@ -3,11 +3,11 @@
   <channel>
       <title>Performance on Juan Sandoval </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://juanitodread.github.io/tags/performance/</link>
+    <link>http://juanitodread.github.io/tags/performance/index.xml</link>
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <updated>Mon, 11 Apr 2016 09:36:02 CDT</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>Type specialization in Scala</title>
