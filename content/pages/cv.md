@@ -36,9 +36,15 @@ Current obsession:
 * Analytics
 * Functional programming
 
+## Wizeline (Guadalajara, Jalisco)
+
+**Software Engineer (Technical lead)** *(2016 - Present)*
+
+[Wizeline](https://www.wizeline.com/) offers product lifecycle software powered by customer intelligence. 
+
 ## IBM (Guadalajara, Jalisco)
 
-**Software Developer (Technical lead) - TS4500** *(2012 - Present)*
+**Software Developer (Technical lead) - TS4500** (2012 - 2016)
 
 Development of the interface management for the [IBM TS4500](http://www-03.ibm.com/systems/storage/tape/ts4500/index.html) storage product. The interface management is a modern web based GUI that allows users administrate and monitoring a tape library. The tape library can work in a distributed environment where the GUI works in a multi node mode and replicates their content through every node.
 
@@ -47,7 +53,7 @@ Development of the interface management for the [IBM TS4500](http://www-03.ibm.c
 * Implementation of a cache layer in the backend to improve performance and life cycle of Java objects. The cache framework implemented was Apache JCS.
 * Design and implementation of widgets with Dojo Toolkit and Javascript for the front end.  
 
-**Software Developer (Technical lead) - CleanDesk** *(2015 - Present)*
+**Software Developer (Technical lead) - CleanDesk** (2015 - 2016)
 
 Development of mobile application for "IBM Clean Desk" initiative.
 
