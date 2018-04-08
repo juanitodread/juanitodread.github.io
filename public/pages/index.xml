@@ -59,7 +59,15 @@
 
 &lt;p&gt;&lt;strong&gt;Software Engineer (Technical lead)&lt;/strong&gt; &lt;em&gt;(2016 - Present)&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.wizeline.com/&#34;&gt;Wizeline&lt;/a&gt; offers product lifecycle software powered by customer intelligence.&lt;/p&gt;
+&lt;p&gt;Development of an analytics system for the Wizeline Chatbots Platform. The analytics system is a web dashboard that displays metrics about user interaction with bots, messages and NLP intents analysis.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Desing and implementation of storage system using &lt;em&gt;Google Bigquery&lt;/em&gt; to support bigdata information. Creation of SQL queries to retrieve information in &lt;em&gt;Python&lt;/em&gt; from &lt;em&gt;Bigquery&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Contributions to Chatbots platform allowing users create bots very easy and fast. Track user and bots behavior (backend =&amp;gt; &lt;em&gt;Python&lt;/em&gt; and frontend =&amp;gt; &lt;em&gt;Reactjs&lt;/em&gt;).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Design and implementation of an ETL process in &lt;em&gt;Scala&lt;/em&gt; to display metrics in real-time. User interaction is stored in &lt;em&gt;Kafka&lt;/em&gt; and &lt;em&gt;Spark stream consumers&lt;/em&gt; process the information from &lt;em&gt;Kafka&lt;/em&gt;, calculate metrics and store results in a &lt;em&gt;Postgres&lt;/em&gt; DB to provide metrics in real-time.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;ibm-guadalajara-jalisco&#34;&gt;IBM (Guadalajara, Jalisco)&lt;/h2&gt;
 
