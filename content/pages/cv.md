@@ -40,7 +40,14 @@ Current obsession:
 
 **Software Engineer (Technical lead)** *(2016 - Present)*
 
-[Wizeline](https://www.wizeline.com/) offers product lifecycle software powered by customer intelligence. 
+Development of an analytics system for the Wizeline Chatbots Platform. The analytics system is a web dashboard that displays metrics about user interaction with bots, messages and NLP intents analysis.
+
+* Desing and implementation of storage system using _Google Bigquery_ to support bigdata information. Creation of SQL queries to retrieve information in _Python_ from _Bigquery_.
+
+* Contributions to Chatbots platform allowing users create bots very easy and fast. Track user and bots behavior (backend => _Python_ and frontend => _Reactjs_).
+
+* Design and implementation of an ETL process in _Scala_ to display metrics in real-time. User interaction is stored in _Kafka_ and _Spark stream consumers_ process the information from _Kafka_, calculate metrics and store results in a _Postgres_ DB to provide metrics in real-time.
+
 
 ## IBM (Guadalajara, Jalisco)
 
