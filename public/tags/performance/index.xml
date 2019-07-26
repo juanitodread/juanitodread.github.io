@@ -1,54 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Performance on Juan Sandoval </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://juanitodread.github.io/tags/performance/index.xml</link>
+    <title>Performance on @juanitodread</title>
+    <link>http://juanitodread.github.io/tags/performance/</link>
+    <description>Recent content in Performance on @juanitodread</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <lastBuildDate>Mon, 11 Apr 2016 09:36:02 -0500</lastBuildDate>
+    
+	<atom:link href="http://juanitodread.github.io/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Type specialization in Scala</title>
       <link>http://juanitodread.github.io/post/type-specialization-scala/</link>
-      <pubDate>Mon, 11 Apr 2016 09:36:02 CDT</pubDate>
-      <author>Juan Antonio Sandoval Delgado</author>
+      <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
+      
       <guid>http://juanitodread.github.io/post/type-specialization-scala/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Type Specialization&lt;/strong&gt; in Scala is a mechanism that allows us to increase the performance in our code when we are writing generic code. When we have a generic class definition the compiler needs to set a real type to the generic class, this represents an extra cost.&lt;/p&gt;
-
-&lt;p&gt;When our real type is one of the &lt;em&gt;primitive&lt;/em&gt; types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropiate boxing and unboxing operations. Again, this will generate an extra cost.&lt;/p&gt;
-
-&lt;p&gt;Since 2.8, Scala added specialized type parameters. This is just an annotation &lt;code&gt;@specialized&lt;/code&gt; that can be used in any type parameter of a method or class definition. This annotation indicates to the compiler that in adition of the generic version of the class it is necessary to create &lt;em&gt;N&lt;/em&gt; number of specialized versions of the defined class. The N number is determined by the definition of the annotation in the code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-Scala&#34;&gt;class LinkedList[@specialized T] {
-
-  def append(@specialized(Int, Long) node: T): Unit = //...
-  // ...
-
-} 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In this case, we have defined the generic class with two specialized types:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;The first one is on the definition of the class. Note that the annotation does not have any additional argument in its declaration. This means that the compiler will generate specialized classes version of the class for all the primitive types in Scala.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The second one is on the definition of the append method. Here we are adding two arguments: Int and Long. This means that the compiler will generate specialized classes versions of the class for the primitive types Int and Long (int, long).&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The compiler derives specialized definitions for all combinations of primitive types. Specialization is performed at the definition site in order to allow separate compilation. Each specialized class is derived from the original definition using specific combination of types and extends the generic class.&lt;/p&gt;
-
-&lt;p&gt;When a generic class is used, first is verified if the class has specialized versions, if so, the specialized class is used whenever possible and boxing process is not performed, incresing the performance of the application at runtime.&lt;/p&gt;
-
-&lt;p&gt;In general I think specialization is a great idea to increase runtime performance in our Scala code, but it also has a cost in compilation time because the compiler needs to generate aditional specialized classes. So use &lt;strong&gt;@specialized&lt;/strong&gt; judiciosly.&lt;/p&gt;
-
-&lt;p&gt;Here are more detailed information about Type Specialization in Scala:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf&#34;&gt;http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.scala-notes.org/2011/04/specializing-for-primitive-types/&#34;&gt;http://www.scala-notes.org/2011/04/specializing-for-primitive-types/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Type Specialization in Scala is a mechanism that allows us to increase the performance in our code when we are writing generic code. When we have a generic class definition the compiler needs to set a real type to the generic class, this represents an extra cost.
+When our real type is one of the primitive types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropriate boxing and unboxing operations.</description>
     </item>
     
   </channel>

@@ -1,34 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Juan Sandoval on Juan Sandoval </title>
+      <title>@juanitodread on @juanitodread </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://juanitodread.github.io/index.xml</link>
+    <link>http://juanitodread.github.io/</link>
     <language>en-us</language>
     <author>Juan Antonio Sandoval Delgado</author>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <updated>Mon, 11 Apr 2016 09:36:02 CDT</updated>
+    <updated>Mon, 11 Apr 2016 09:36:02 -0500</updated>
     
     <item>
       <title>Type specialization in Scala</title>
       <link>http://juanitodread.github.io/post/type-specialization-scala/</link>
-      <pubDate>Mon, 11 Apr 2016 09:36:02 CDT</pubDate>
+      <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
       <guid>http://juanitodread.github.io/post/type-specialization-scala/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Type Specialization&lt;/strong&gt; in Scala is a mechanism that allows us to increase the performance in our code when we are writing generic code. When we have a generic class definition the compiler needs to set a real type to the generic class, this represents an extra cost.&lt;/p&gt;
 
-&lt;p&gt;When our real type is one of the &lt;em&gt;primitive&lt;/em&gt; types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropiate boxing and unboxing operations. Again, this will generate an extra cost.&lt;/p&gt;
+&lt;p&gt;When our real type is one of the &lt;em&gt;primitive&lt;/em&gt; types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropriate boxing and unboxing operations. Again, this will generate an extra cost.&lt;/p&gt;
 
-&lt;p&gt;Since 2.8, Scala added specialized type parameters. This is just an annotation &lt;code&gt;@specialized&lt;/code&gt; that can be used in any type parameter of a method or class definition. This annotation indicates to the compiler that in adition of the generic version of the class it is necessary to create &lt;em&gt;N&lt;/em&gt; number of specialized versions of the defined class. The N number is determined by the definition of the annotation in the code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-Scala&#34;&gt;class LinkedList[@specialized T] {
-
-  def append(@specialized(Int, Long) node: T): Unit = //...
-  // ...
-
-} 
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;Since 2.8, Scala added specialized type parameters. This is just an annotation &lt;code&gt;@specialized&lt;/code&gt; that can be used in any type parameter of a method or class definition. This annotation indicates to the compiler that in addition of the generic version of the class it is necessary to create &lt;em&gt;N&lt;/em&gt; number of specialized versions of the defined class. The N number is determined by the definition of the annotation in the code.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Scala&#34; data-lang=&#34;Scala&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Scala&#34; data-lang=&#34;Scala&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;LinkedList&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;@specialized&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;T&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; append&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@specialized&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Long&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; node&lt;span style=&#34;color:#66d9ef&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;T&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Unit&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#75715e&#34;&gt;//...
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;In this case, we have defined the generic class with two specialized types:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -39,22 +45,21 @@
 
 &lt;p&gt;The compiler derives specialized definitions for all combinations of primitive types. Specialization is performed at the definition site in order to allow separate compilation. Each specialized class is derived from the original definition using specific combination of types and extends the generic class.&lt;/p&gt;
 
-&lt;p&gt;When a generic class is used, first is verified if the class has specialized versions, if so, the specialized class is used whenever possible and boxing process is not performed, incresing the performance of the application at runtime.&lt;/p&gt;
+&lt;p&gt;When a generic class is used, first is verified if the class has specialized versions, if so, the specialized class is used whenever possible and boxing process is not performed, increasing the performance of the application at runtime.&lt;/p&gt;
 
-&lt;p&gt;In general I think specialization is a great idea to increase runtime performance in our Scala code, but it also has a cost in compilation time because the compiler needs to generate aditional specialized classes. So use &lt;strong&gt;@specialized&lt;/strong&gt; judiciosly.&lt;/p&gt;
+&lt;p&gt;In general I think specialization is a great idea to increase runtime performance in our Scala code, but it also has a cost in compilation time because the compiler needs to generate additional specialized classes. So use &lt;strong&gt;@specialized&lt;/strong&gt; judiciously.&lt;/p&gt;
 
 &lt;p&gt;Here are more detailed information about Type Specialization in Scala:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf&#34;&gt;http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.scala-notes.org/2011/04/specializing-for-primitive-types/&#34;&gt;http://www.scala-notes.org/2011/04/specializing-for-primitive-types/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf&#34;&gt;http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf&lt;/a&gt;
+&lt;a href=&#34;http://www.scala-notes.org/2011/04/specializing-for-primitive-types/&#34;&gt;http://www.scala-notes.org/2011/04/specializing-for-primitive-types/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Builder pattern in Scala</title>
       <link>http://juanitodread.github.io/post/builder-pattern-in-scala/</link>
-      <pubDate>Thu, 03 Mar 2016 23:47:44 CST</pubDate>
+      <pubDate>Thu, 03 Mar 2016 23:47:44 -0600</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
       <guid>http://juanitodread.github.io/post/builder-pattern-in-scala/</guid>
       <description>&lt;p&gt;The &lt;em&gt;Builder Pattern&lt;/em&gt; is a design pattern for create objects. The builder pattern allows to the user the creation of an object that requires a lot of parameters in its constructor.&lt;/p&gt;
@@ -80,23 +85,33 @@
 &lt;/ul&gt;
 
 &lt;p&gt;The first step is create our pizza model, we will use &lt;strong&gt;case classes&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-Scala&#34;&gt;case class Pizza(ingredients: List[String],
-                 cheese: String = &amp;quot;Mozzarella&amp;quot;,
-                 size: String = &amp;quot;medium&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Scala&#34; data-lang=&#34;Scala&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Scala&#34; data-lang=&#34;Scala&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Pizza&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;ingredients&lt;span style=&#34;color:#66d9ef&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;List&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;String&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;],&lt;/span&gt;
+                 cheese&lt;span style=&#34;color:#66d9ef&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;String&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mozzarella&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+                 size&lt;span style=&#34;color:#66d9ef&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;String&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;medium&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;Now, any developer can use our pizza class to create pizzas :D&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s create three different pizzas:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-Scala&#34;&gt;val italian = Pizza(List(&amp;quot;Pepperoni&amp;quot;, &amp;quot;Mushrooms&amp;quot;))
-
-val hawaian = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Pineapple&amp;quot;), size = &amp;quot;Small&amp;quot;)
-
-val meat = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Bacon&amp;quot;), cheese = &amp;quot;Cheddar&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Scala&#34; data-lang=&#34;Scala&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Scala&#34; data-lang=&#34;Scala&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; italian &lt;span style=&#34;color:#66d9ef&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Pizza&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;List&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Pepperoni&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mushrooms&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; hawaiian &lt;span style=&#34;color:#66d9ef&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Pizza&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;List&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ham&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Pineapple&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;),&lt;/span&gt; size &lt;span style=&#34;color:#66d9ef&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Small&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; meat &lt;span style=&#34;color:#66d9ef&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Pizza&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;List&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ham&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bacon&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;),&lt;/span&gt; cheese &lt;span style=&#34;color:#66d9ef&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Cheddar&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;As you can see, now you can create different kind of pizzas without problems.&lt;/p&gt;
 </description>
     </item>
@@ -104,7 +119,7 @@ val meat = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Bacon&amp;quot;), chees
     <item>
       <title>Scalariform on a Play project</title>
       <link>http://juanitodread.github.io/post/scalariform-playframework-post/</link>
-      <pubDate>Wed, 10 Feb 2016 10:28:48 CST</pubDate>
+      <pubDate>Wed, 10 Feb 2016 10:28:48 -0600</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
       <guid>http://juanitodread.github.io/post/scalariform-playframework-post/</guid>
       <description>&lt;p&gt;In the last days I have been playing with some powerful tools for start web applications in a fast and easy way that resides on the Cloud. These tools are:&lt;/p&gt;
@@ -119,18 +134,26 @@ val meat = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Bacon&amp;quot;), chees
 
 &lt;p&gt;Finally after some attempts I was able to run my sample application. I was using Atom as my code editor (I needed to add a plugin to recognize the Scala syntax). I can say that Atom is a really good tool to edit Scala files but it doesn&amp;rsquo;t have plugins to format code like Eclipse or Intellij IDEA. Fortunately exists a tool in Scala (&lt;a href=&#34;https://github.com/scala-ide/scalariform&#34;&gt;Scalariform&lt;/a&gt;) to format the code. You can run as an external tool or include in your SBT (Also is the plugin that Eclipse uses to format the code).&lt;/p&gt;
 
-&lt;p&gt;I choosed to run Scalariform from my SBT script. The default behavior is that Scalariform is executed when the code is compiled but you can change the default behavior. I use the default behavior.&lt;/p&gt;
+&lt;p&gt;I chose to run Scalariform from my SBT script. The default behavior is that Scalariform is executed when the code is compiled but you can change the default behavior. I use the default behavior.&lt;/p&gt;
 
 &lt;p&gt;The only thing you need to do is add the Scalariform plugin into the plugins.sbt file. The file is located in:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;root-play-project/project/plugins.sbt
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;root-play-project/project/plugins.sbt&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;To use the plugin just add this line in &lt;em&gt;plugins.sbt&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;addSbtPlugin(&amp;quot;org.scalariform&amp;quot; % &amp;quot;sbt-scalariform&amp;quot; % &amp;quot;1.6.0&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;addSbtPlugin&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;org.scalariform&amp;#34;&lt;/span&gt; % &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sbt-scalariform&amp;#34;&lt;/span&gt; % &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1.6.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;And that&amp;rsquo;s all!.&lt;/p&gt;
 
 &lt;p&gt;Now on every project compilation Scalariform will format all the Scala code :D. You can modify the default settings of Scalariform if you want a different style. The recommendation is to use the &lt;a href=&#34;http://docs.scala-lang.org/style/declarations.html&#34;&gt;Scala Style Guide&lt;/a&gt;&lt;/p&gt;
@@ -138,9 +161,9 @@ val meat = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Bacon&amp;quot;), chees
     </item>
     
     <item>
-      <title>Resume</title>
+      <title></title>
       <link>http://juanitodread.github.io/pages/cv/</link>
-      <pubDate>Fri, 02 Oct 2015 00:28:02 CDT</pubDate>
+      <pubDate>Fri, 02 Oct 2015 00:28:02 -0500</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
       <guid>http://juanitodread.github.io/pages/cv/</guid>
       <description>
@@ -317,7 +340,7 @@ val meat = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Bacon&amp;quot;), chees
     <item>
       <title>First post</title>
       <link>http://juanitodread.github.io/post/first-post/</link>
-      <pubDate>Wed, 30 Sep 2015 00:38:49 CDT</pubDate>
+      <pubDate>Wed, 30 Sep 2015 00:38:49 -0500</pubDate>
       <author>Juan Antonio Sandoval Delgado</author>
       <guid>http://juanitodread.github.io/post/first-post/</guid>
       <description>&lt;p&gt;Well these are my first steps with &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;. I really like how &lt;strong&gt;hugo&lt;/strong&gt; is designed and how you have to work with it.&lt;/p&gt;
@@ -334,16 +357,26 @@ val meat = Pizza(List(&amp;quot;Ham&amp;quot;, &amp;quot;Bacon&amp;quot;), chees
 &lt;/ul&gt;
 
 &lt;p&gt;And here we have a bit of code :D&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// Hello world in Scala
-
-object Main {
-  def main(args: Array[String]): Unit = {
-    println(&amp;quot;Hello world!!!... and welcome to this blog ;)&amp;quot;)
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Hello world in Scala
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Main&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; main&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;args&lt;span style=&#34;color:#66d9ef&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Array&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;String&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Unit&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+    println&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello world!!!... and welcome to this blog ;)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
     </item>
     
   </channel>

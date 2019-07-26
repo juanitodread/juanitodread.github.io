@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on @juanitodread</title>
+    <link>http://juanitodread.github.io/tags/</link>
+    <description>Recent content in Tags on @juanitodread</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 11 Apr 2016 09:36:02 -0500</lastBuildDate>
+    
+	<atom:link href="http://juanitodread.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Performance</title>
+      <link>http://juanitodread.github.io/tags/performance/</link>
+      <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
+      
+      <guid>http://juanitodread.github.io/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scala</title>
+      <link>http://juanitodread.github.io/tags/scala/</link>
+      <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
+      
+      <guid>http://juanitodread.github.io/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design Patterns</title>
+      <link>http://juanitodread.github.io/tags/design-patterns/</link>
+      <pubDate>Thu, 03 Mar 2016 23:47:44 -0600</pubDate>
+      
+      <guid>http://juanitodread.github.io/tags/design-patterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Matching</title>
+      <link>http://juanitodread.github.io/tags/pattern-matching/</link>
+      <pubDate>Thu, 03 Mar 2016 23:47:44 -0600</pubDate>
+      
+      <guid>http://juanitodread.github.io/tags/pattern-matching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Playframework</title>
+      <link>http://juanitodread.github.io/tags/playframework/</link>
+      <pubDate>Wed, 10 Feb 2016 10:28:48 -0600</pubDate>
+      
+      <guid>http://juanitodread.github.io/tags/playframework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scalariform</title>
+      <link>http://juanitodread.github.io/tags/scalariform/</link>
+      <pubDate>Wed, 10 Feb 2016 10:28:48 -0600</pubDate>
+      
+      <guid>http://juanitodread.github.io/tags/scalariform/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

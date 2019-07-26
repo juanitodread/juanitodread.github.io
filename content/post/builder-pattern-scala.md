@@ -38,9 +38,7 @@ Now, any developer can use our pizza class to create pizzas :D
 Let's create three different pizzas:
 ``` Scala
 val italian = Pizza(List("Pepperoni", "Mushrooms"))
-
-val hawaian = Pizza(List("Ham", "Pineapple"), size = "Small")
-
+val hawaiian = Pizza(List("Ham", "Pineapple"), size = "Small")
 val meat = Pizza(List("Ham", "Bacon"), cheese = "Cheddar")
 ```
 

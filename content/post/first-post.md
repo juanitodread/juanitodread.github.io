@@ -20,7 +20,7 @@ I hope add more and more content to this blog. My idea is to write about softwar
 
 And here we have a bit of code :D
 
-```
+```scala
 // Hello world in Scala
 
 object Main {

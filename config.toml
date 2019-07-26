@@ -1,29 +1,91 @@
 baseurl = "http://juanitodread.github.io/"
 languageCode = "en-us"
+defaultcontentlanguage = "en"
 MetaDataFormat = "toml"
 contentdir = "content"
 publishdir = "public"
 builddrafts = false
-canonifyurls = false
-title = "Juan Sandoval"
+title = "@juanitodread"
+theme = "hugo-coder"
 copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 
+paginate = 10
+canonifyurls = true
+enableEmoji = true
+
+pygmentsCodefences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsOptions = "linenos=table,linenostart=1"
+
+disqusShortname = "juanitodread"
 
 [author]
     name = "Juan Antonio Sandoval Delgado"
-
 [indexes]
        category = "categories"
        tag = "tags"
 [Params]
-      AuthorName = "Juan Sandoval"
-      github = "juanitodread"
-      flickr = "juanitodread"
-      twitter = "juanitodread"
-      email = "juanitodread@gmail.com"
-      description = "Software Engineer"
-      cv = "/pages/cv"
-      muut = "juanitodread"
-      linkedin = "juanitodread"
-      cover = "/images/cover.jpg"
-      logo = "/images/me.jpg"
+    author = "Juan Sandoval"
+    info = "Software Developer Engineer"
+    description = "Juan Sandovals personal website"
+    keywords = "blog,developer,personal"
+    avatarurl = "/images/me.jpg"
+
+    favicon_32 = "/img/favicon-32x32.png"
+    favicon_16 = "/img/favicon-16x16.png"
+
+    footercontent = "Personal website"
+
+    hidecredits = true
+    hidecopyright = false
+
+    rtl = false
+    math = false
+    custom_css = ["css/custom.css"]
+
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/post/"
+[[menu.main]]
+    name = "About"
+    weight = 2
+    url = "/pages/cv"
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+[[Params.social]]
+    name = "Github"
+    icon = "fab fa-github"
+    weight = 1
+    url = "https://github.com/juanitodread/"
+[[Params.social]]
+    name = "LinkedIn"
+    icon = "fab fa-linkedin"
+    weight = 2
+    url = "https://www.linkedin.com/in/juanitodread/"
+[[Params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter"
+    weight = 3
+    url = "https://twitter.com/juanitodread/"
+[[Params.social]]
+    name = "StackOverflow"
+    icon = "fab fa-stack-overflow"
+    weight = 4
+    url = "http://stackoverflow.com/users/362937/juanitodread"
+[[Params.social]]
+    name = "Medium"
+    icon = "fab fa-medium"
+    weight = 5
+    url = "https://medium.com/@juanitodread"
+[[Params.social]]
+    name = "Flickr"
+    icon = "fab fa-flickr"
+    weight = 6
+    url = "http://www.flickr.com/photos/juanitodread/"
+

@@ -17,16 +17,16 @@ You can check the app [here](https://crud-lab.herokuapp.com/).
 
 Finally after some attempts I was able to run my sample application. I was using Atom as my code editor (I needed to add a plugin to recognize the Scala syntax). I can say that Atom is a really good tool to edit Scala files but it doesn't have plugins to format code like Eclipse or Intellij IDEA. Fortunately exists a tool in Scala ([Scalariform](https://github.com/scala-ide/scalariform)) to format the code. You can run as an external tool or include in your SBT (Also is the plugin that Eclipse uses to format the code).
 
-I choosed to run Scalariform from my SBT script. The default behavior is that Scalariform is executed when the code is compiled but you can change the default behavior. I use the default behavior.
+I chose to run Scalariform from my SBT script. The default behavior is that Scalariform is executed when the code is compiled but you can change the default behavior. I use the default behavior.
 
 The only thing you need to do is add the Scalariform plugin into the plugins.sbt file. The file is located in:
 
-```
+```shell
 root-play-project/project/plugins.sbt
 ```
 To use the plugin just add this line in *plugins.sbt*
 
-```
+```shell
 addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.6.0")
 ```
 

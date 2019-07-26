@@ -1,39 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://juanitodread.github.io/post/type-specialization-scala/</loc>
+    <loc>http://juanitodread.github.io/</loc>
     <lastmod>2016-04-11T09:36:02-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://juanitodread.github.io/post/builder-pattern-in-scala/</loc>
-    <lastmod>2016-03-03T23:47:44-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://juanitodread.github.io/post/scalariform-playframework-post/</loc>
-    <lastmod>2016-02-10T10:28:48-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://juanitodread.github.io/pages/cv/</loc>
-    <lastmod>2015-10-02T00:28:02-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://juanitodread.github.io/post/first-post/</loc>
-    <lastmod>2015-09-30T00:38:49-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://juanitodread.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://juanitodread.github.io/tags/design-patterns/</loc>
-    <lastmod>2016-03-03T23:47:44-06:00</lastmod>
+    <loc>http://juanitodread.github.io/categories/</loc>
+    <lastmod>2016-04-11T09:36:02-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -44,32 +21,8 @@
   </url>
   
   <url>
-    <loc>http://juanitodread.github.io/</loc>
-    <lastmod>2016-04-11T09:36:02-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://juanitodread.github.io/pages/</loc>
-    <lastmod>2015-10-02T00:28:02-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://juanitodread.github.io/tags/pattern-matching/</loc>
-    <lastmod>2016-03-03T23:47:44-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://juanitodread.github.io/tags/performance/</loc>
     <lastmod>2016-04-11T09:36:02-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://juanitodread.github.io/tags/playframework/</loc>
-    <lastmod>2016-02-10T10:28:48-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -86,14 +39,64 @@
   </url>
   
   <url>
+    <loc>http://juanitodread.github.io/tags/</loc>
+    <lastmod>2016-04-11T09:36:02-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://juanitodread.github.io/post/type-specialization-scala/</loc>
+    <lastmod>2016-04-11T09:36:02-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://juanitodread.github.io/post/builder-pattern-in-scala/</loc>
+    <lastmod>2016-03-03T23:47:44-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://juanitodread.github.io/tags/design-patterns/</loc>
+    <lastmod>2016-03-03T23:47:44-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://juanitodread.github.io/tags/pattern-matching/</loc>
+    <lastmod>2016-03-03T23:47:44-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://juanitodread.github.io/tags/playframework/</loc>
+    <lastmod>2016-02-10T10:28:48-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://juanitodread.github.io/tags/scalariform/</loc>
     <lastmod>2016-02-10T10:28:48-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://juanitodread.github.io/tags/</loc>
+    <loc>http://juanitodread.github.io/post/scalariform-playframework-post/</loc>
+    <lastmod>2016-02-10T10:28:48-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://juanitodread.github.io/pages/cv/</loc>
+    <lastmod>2015-10-02T00:28:02-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://juanitodread.github.io/pages/</loc>
+    <lastmod>2015-10-02T00:28:02-05:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://juanitodread.github.io/post/first-post/</loc>
+    <lastmod>2015-09-30T00:38:49-05:00</lastmod>
   </url>
   
 </urlset>
