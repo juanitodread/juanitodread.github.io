@@ -1,158 +1,119 @@
-  <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Type specialization in Scala &middot; Juan Sandoval </title>
-    
-    <link rel="stylesheet" type="text/css" href="http://juanitodread.github.io//css/uno.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://juanitodread.github.io//css/lightGallery.css" />
-    
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/favicon.ico">
-    
-    <link href="" rel="alternate" type="application/rss+xml" title="Juan Sandoval" />
-    
-    <script src="http://juanitodread.github.io//js/jquery.min.js"></script>
-    <script src="http://juanitodread.github.io//js/main.min.js">
-    </script>
-</head>
+<!DOCTYPE html>
+<html lang="en">
 
-  <body>
-    <div id="scriptHeader">
-    <span class="mobile btn-mobile-menu">
-            <i class="fa fa-bars btn-mobile-menu__icon"></i>
-            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
-    </span>
-    <header class="
-        
-            panel-cover panel-cover--collapsed
-        "  style="background-image: url(/images/cover.jpg)" >
-    <div class="panel-main">
-        <div class="panel-main__inner panel-inverted">
-            <div class="panel-main__content"> 
-                <a href="http://juanitodread.github.io//" title="link to homepage for Juan Sandoval"> <img src="/images/me.jpg" width="80" alt="Juan Sandoval logo" class="panel-cover__logo logo" /> </a> 
-                <h1 class="panel-cover__title panel-title">
-                    <a href="http://juanitodread.github.io//"  title="link to homepage for Juan Sandoval">Juan Sandoval</a>
-                </h1>
-                <hr class="panel-cover__divider" />
-                <p class="panel-cover__description">  Software Engineer  </p>
-                <hr class="panel-cover__divider panel-cover__divider--secondary" />
-                <div class="navigation-wrapper">
-                    <nav class="cover-navigation cover-navigation--primary">
-                        <ul class="navigation">
-                            <li class="navigation__item"><a href="http://juanitodread.github.io/#blog" title="link to Juan Sandoval blog" class="blog-button">Blog</a> </li></br>
-                            <li class="navigation__item"><a href="/pages/cv" title="link to my CV " class="blog-button">CV</a> </li></br> 
-                            
-                       </ul>
-                    </nav> <nav class="cover-navigation navigation--social">
-    <ul class="navigation"> 
-        
-        <li class="navigation__item">
-            <a href="http://twitter.com/juanitodread" title="@juanitodread on Twitter"> <i class='fa fa-twitter'></i> <span class="label">Twitter</span> </a>
-        </li>   
-        
-        <li class="navigation__item">
-            <a href="https://github.com/juanitodread" title="juanitodread on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
-        </li>  </br> 
-        
-        <li class="navigation__item">
-            <a href="http://www.flickr.com/photos/juanitodread/" title="juanitodread on flickr"> <i class='fa fa-flickr'></i> <span class="label">Flickr</span> </a>
-        </li>  
-        
-        <li class="navigation__item">
-            <a href="https://www.linkedin.com/in/juanitodread" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
-        </li>  
-        
-        <li class="navigation__item">
-            <a href="mailto:juanitodread@gmail.com" title="Email juanitodread@gmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
-        </li>  </ul>
-</nav>
- </div>
-            </div>
-        </div>
-        <div class="panel-cover--overlay"></div>
-    </div>
-</header>
-</div>
-<noscript>
-    <style>
-        #scriptHeader {display:none;}
-        .navigation-wrapper{
-            display: block;
-            top: 0;
-        }
-    </style>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/cover.jpg)">
-        <div class="panel-main">
-            <div class="panel-main__inner panel-inverted">
-                <div class="panel-main__content"> 
-                    <a href="http://juanitodread.github.io//" title="link to homepage for Juan Sandoval"> <img src="/images/me.jpg" width="80" alt="Juan Sandoval logo" class="panel-cover__logo logo" /> </a> 
-                    <h1 class="panel-cover__title panel-title">
-                        <a href="http://juanitodread.github.io//"  title="link to homepage for Juan Sandoval">Juan Sandoval</a>
-                    </h1>
-                    <hr class="panel-cover__divider" />
-                    <p class="panel-cover__description">  Software Engineer  </p>
-                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
-                    <div class="navigation-wrapper">
-                        <nav class="cover-navigation cover-navigation--primary">
-                            <ul class="navigation">
-                                <li class="navigation__item"><a href="http://juanitodread.github.io//#blog" title="link to Juan Sandoval blog" class="blog-button">Blog</a> </li></br>
-                                <li class="navigation__item"><a href="/pages/cv" title="link to my CV " class="blog-button">CV</a> </li></br> 
-                                
-                           </ul>
-                        </nav> <nav class="cover-navigation navigation--social">
-    <ul class="navigation"> 
+    <meta name="author" content="Juan Sandoval">
+    <meta name="description" content="Juan Sandovals personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Type specialization in Scala"/>
+<meta name="twitter:description" content="Use of specialized types in generic class and methods in Scala"/>
+
+    <meta property="og:title" content="Type specialization in Scala" />
+<meta property="og:description" content="Use of specialized types in generic class and methods in Scala" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://juanitodread.github.io/post/type-specialization-scala/" />
+<meta property="article:published_time" content="2016-04-11T09:36:02-05:00" />
+<meta property="article:modified_time" content="2016-04-11T09:36:02-05:00" />
+
+
+    
+      <base href="http://juanitodread.github.io/post/type-specialization-scala/">
+    
+    <title>
+  Type specialization in Scala · @juanitodread
+</title>
+
+    
+      <link rel="canonical" href="http://juanitodread.github.io/post/type-specialization-scala/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://juanitodread.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="http://juanitodread.github.io/css/custom.css" />
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://juanitodread.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://juanitodread.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.56.0" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://juanitodread.github.io/">
+      @juanitodread
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
         
-        <li class="navigation__item">
-            <a href="http://twitter.com/juanitodread" title="@juanitodread on Twitter"> <i class='fa fa-twitter'></i> <span class="label">Twitter</span> </a>
-        </li>   
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://juanitodread.github.io/post/">Blog</a>
+          </li>
         
-        <li class="navigation__item">
-            <a href="https://github.com/juanitodread" title="juanitodread on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
-        </li>  </br> 
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://juanitodread.github.io/pages/cv">About</a>
+          </li>
         
-        <li class="navigation__item">
-            <a href="http://www.flickr.com/photos/juanitodread/" title="juanitodread on flickr"> <i class='fa fa-flickr'></i> <span class="label">Flickr</span> </a>
-        </li>  
-        
-        <li class="navigation__item">
-            <a href="https://www.linkedin.com/in/juanitodread" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
-        </li>  
-        
-        <li class="navigation__item">
-            <a href="mailto:juanitodread@gmail.com" title="Email juanitodread@gmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
-        </li>  </ul>
+      
+      
+    </ul>
+  </section>
 </nav>
- </div>
-                </div>
-            </div>
-            <div class="panel-cover--overlay"></div>
-        </div>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Type specialization in Scala</h1>
     </header>
-</noscript>
 
-    <div class="content-wrapper">
-      <div class="content-wrapper__inner">
-        <div class="post">
-          <h1>Type specialization in Scala</h1>
-          <span class="post-date">Mon, Apr 11, 2016</span>
-          <p><strong>Type Specialization</strong> in Scala is a mechanism that allows us to increase the performance in our code when we are writing generic code. When we have a generic class definition the compiler needs to set a real type to the generic class, this represents an extra cost.</p>
+    <p><strong>Type Specialization</strong> in Scala is a mechanism that allows us to increase the performance in our code when we are writing generic code. When we have a generic class definition the compiler needs to set a real type to the generic class, this represents an extra cost.</p>
 
-<p>When our real type is one of the <em>primitive</em> types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropiate boxing and unboxing operations. Again, this will generate an extra cost.</p>
+<p>When our real type is one of the <em>primitive</em> types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropriate boxing and unboxing operations. Again, this will generate an extra cost.</p>
 
-<p>Since 2.8, Scala added specialized type parameters. This is just an annotation <code>@specialized</code> that can be used in any type parameter of a method or class definition. This annotation indicates to the compiler that in adition of the generic version of the class it is necessary to create <em>N</em> number of specialized versions of the defined class. The N number is determined by the definition of the annotation in the code.</p>
-
-<pre><code class="language-Scala">class LinkedList[@specialized T] {
-
-  def append(@specialized(Int, Long) node: T): Unit = //...
-  // ...
-
-} 
-</code></pre>
-
+<p>Since 2.8, Scala added specialized type parameters. This is just an annotation <code>@specialized</code> that can be used in any type parameter of a method or class definition. This annotation indicates to the compiler that in addition of the generic version of the class it is necessary to create <em>N</em> number of specialized versions of the defined class. The N number is determined by the definition of the annotation in the code.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedList</span><span style="color:#f92672">[</span><span style="color:#66d9ef">@specialized</span> <span style="color:#66d9ef">T</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">def</span> append<span style="color:#f92672">(</span><span style="color:#a6e22e">@specialized</span><span style="color:#f92672">(</span><span style="color:#a6e22e">Int</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">Long</span><span style="color:#f92672">)</span> node<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">T</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span> </code></pre></td></tr></table>
+</div>
+</div>
 <p>In this case, we have defined the generic class with two specialized types:</p>
 
 <ul>
@@ -163,42 +124,36 @@
 
 <p>The compiler derives specialized definitions for all combinations of primitive types. Specialization is performed at the definition site in order to allow separate compilation. Each specialized class is derived from the original definition using specific combination of types and extends the generic class.</p>
 
-<p>When a generic class is used, first is verified if the class has specialized versions, if so, the specialized class is used whenever possible and boxing process is not performed, incresing the performance of the application at runtime.</p>
+<p>When a generic class is used, first is verified if the class has specialized versions, if so, the specialized class is used whenever possible and boxing process is not performed, increasing the performance of the application at runtime.</p>
 
-<p>In general I think specialization is a great idea to increase runtime performance in our Scala code, but it also has a cost in compilation time because the compiler needs to generate aditional specialized classes. So use <strong>@specialized</strong> judiciosly.</p>
+<p>In general I think specialization is a great idea to increase runtime performance in our Scala code, but it also has a cost in compilation time because the compiler needs to generate additional specialized classes. So use <strong>@specialized</strong> judiciously.</p>
 
 <p>Here are more detailed information about Type Specialization in Scala:</p>
 
-<p><a href="http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf">http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf</a></p>
+<p><a href="http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf">http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf</a>
+<a href="http://www.scala-notes.org/2011/04/specializing-for-primitive-types/">http://www.scala-notes.org/2011/04/specializing-for-primitive-types/</a></p>
 
-<p><a href="http://www.scala-notes.org/2011/04/specializing-for-primitive-types/">http://www.scala-notes.org/2011/04/specializing-for-primitive-types/</a></p>
-
-        </div>
-        <div class="sharing">
-<a href="https://twitter.com/intent/tweet?status=Type%20specialization%20in%20Scala-http%3a%2f%2fjuanitodread.github.io%2fpost%2ftype-specialization-scala%2f" target="_blank" title="Follow me on Twitter" class="twitter">
-<span class="fa fa-twitter-square fa-3x"></span></a>
-<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fjuanitodread.github.io%2fpost%2ftype-specialization-scala%2f" target="_blank" title="Join me on Facebook" class="facebook">
-<span class="fa fa-facebook-square fa-3x"></span></a>
-<a href="https://plus.google.com/share?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2ftype-specialization-scala%2f" target="_blank" title="Google+" class="googleplus">
-<span class="fa fa-google-plus-square fa-3x"></span></a>
-<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fjuanitodread.github.io%2fpost%2ftype-specialization-scala%2f&title=Type%20specialization%20in%20Scala" target="_blank" title="LinkedIn" class="linkedin">
-<span class="fa fa-linkedin-square fa-3x"></span></a>
-<a href="http://www.reddit.com/submit?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2ftype-specialization-scala%2f" target="_blank" title="Reddit" class="reddit"><span class="fa fa-reddit-square fa-3x"></span></a>
-<a href="http://www.stumbleupon.com/submit?url=http%3a%2f%2fjuanitodread.github.io%2fpost%2ftype-specialization-scala%2f" target="_blank" title="StumbleUpon" class="stumbleupon"><span class="fa fa-stumbleupon fa-3x">
-</span></a>
-</div>
-        
-<section class="post-comments">
-<a class="muut" href="https://muut.com/i/juanitodread/comments:Type%20specialization%20in%20Scala">Comments</a>
-<script src="//cdn.muut.com/1/moot.min.js"></script>
+  </article>
 </section>
 
 
-
-
       </div>
-    </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Personal website</p>
+    
+     © 2019
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
 
   </body>
-  
+
 </html>
