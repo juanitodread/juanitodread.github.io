@@ -8,10 +8,10 @@ hugo new post/first.md
 ```
 ### Hugo server
 ```shell
-rm -rf public && hugo server --theme=hugo-uno --buildDrafts --watch
+rm -rf public && hugo server --theme=<hugo-theme-name> --buildDrafts --watch
 ```
 
 ### Hugo deploy
 ```shell
-hugo --theme=hugo-uno
+hugo --theme=<hugo-theme-name>
 ```
