@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on @juanitodread</title>
-    <link>http://juanitodread.github.io/post/</link>
+    <link>https://juanitodread.github.io/post/</link>
     <description>Recent content in Posts on @juanitodread</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
     <lastBuildDate>Mon, 11 Apr 2016 09:36:02 -0500</lastBuildDate>
     
-	<atom:link href="http://juanitodread.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://juanitodread.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Type specialization in Scala</title>
-      <link>http://juanitodread.github.io/post/type-specialization-scala/</link>
+      <link>https://juanitodread.github.io/post/type-specialization-scala/</link>
       <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
       
-      <guid>http://juanitodread.github.io/post/type-specialization-scala/</guid>
+      <guid>https://juanitodread.github.io/post/type-specialization-scala/</guid>
       <description>Type Specialization in Scala is a mechanism that allows us to increase the performance in our code when we are writing generic code. When we have a generic class definition the compiler needs to set a real type to the generic class, this represents an extra cost.
 When our real type is one of the primitive types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropriate boxing and unboxing operations.</description>
     </item>
     
     <item>
       <title>Builder pattern in Scala</title>
-      <link>http://juanitodread.github.io/post/builder-pattern-in-scala/</link>
+      <link>https://juanitodread.github.io/post/builder-pattern-in-scala/</link>
       <pubDate>Thu, 03 Mar 2016 23:47:44 -0600</pubDate>
       
-      <guid>http://juanitodread.github.io/post/builder-pattern-in-scala/</guid>
+      <guid>https://juanitodread.github.io/post/builder-pattern-in-scala/</guid>
       <description>The Builder Pattern is a design pattern for create objects. The builder pattern allows to the user the creation of an object that requires a lot of parameters in its constructor.
 The problem with objects that requires different parameters to be constructed is that the programmer will need to overload the constructor to support all the distinct combinations of parameters.
 In Java is very common to create a new class (the builder) object that will receives all the parameters and builds a new object with the parameters received.</description>
@@ -35,20 +35,20 @@ In Java is very common to create a new class (the builder) object that will rece
     
     <item>
       <title>Scalariform on a Play project</title>
-      <link>http://juanitodread.github.io/post/scalariform-playframework-post/</link>
+      <link>https://juanitodread.github.io/post/scalariform-playframework-post/</link>
       <pubDate>Wed, 10 Feb 2016 10:28:48 -0600</pubDate>
       
-      <guid>http://juanitodread.github.io/post/scalariform-playframework-post/</guid>
+      <guid>https://juanitodread.github.io/post/scalariform-playframework-post/</guid>
       <description>In the last days I have been playing with some powerful tools for start web applications in a fast and easy way that resides on the Cloud. These tools are:
  Playframework As my web framework. It is really easy to start a web application on Play and is oriented to REST. Play supports Scala or Java as a language (I recommend to use Scala). Heroku It is really simple to deploy a Scala application.</description>
     </item>
     
     <item>
       <title>First post</title>
-      <link>http://juanitodread.github.io/post/first-post/</link>
+      <link>https://juanitodread.github.io/post/first-post/</link>
       <pubDate>Wed, 30 Sep 2015 00:38:49 -0500</pubDate>
       
-      <guid>http://juanitodread.github.io/post/first-post/</guid>
+      <guid>https://juanitodread.github.io/post/first-post/</guid>
       <description>Well these are my first steps with hugo. I really like how hugo is designed and how you have to work with it.
 I have an old blog with Blogger but at this point I decided to use github pages and work with hugo to generate static content like this ;).
 I’m still learning hugo due today I just know the basics (really basics) steps in hugo.
