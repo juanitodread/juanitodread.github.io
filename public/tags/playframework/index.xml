@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Playframework on @juanitodread</title>
-    <link>http://juanitodread.github.io/tags/playframework/</link>
+    <link>https://juanitodread.github.io/tags/playframework/</link>
     <description>Recent content in Playframework on @juanitodread</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
     <lastBuildDate>Wed, 10 Feb 2016 10:28:48 -0600</lastBuildDate>
     
-	<atom:link href="http://juanitodread.github.io/tags/playframework/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://juanitodread.github.io/tags/playframework/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Scalariform on a Play project</title>
-      <link>http://juanitodread.github.io/post/scalariform-playframework-post/</link>
+      <link>https://juanitodread.github.io/post/scalariform-playframework-post/</link>
       <pubDate>Wed, 10 Feb 2016 10:28:48 -0600</pubDate>
       
-      <guid>http://juanitodread.github.io/post/scalariform-playframework-post/</guid>
+      <guid>https://juanitodread.github.io/post/scalariform-playframework-post/</guid>
       <description>In the last days I have been playing with some powerful tools for start web applications in a fast and easy way that resides on the Cloud. These tools are:
  Playframework As my web framework. It is really easy to start a web application on Play and is oriented to REST. Play supports Scala or Java as a language (I recommend to use Scala). Heroku It is really simple to deploy a Scala application.</description>
     </item>

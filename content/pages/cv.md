@@ -134,4 +134,4 @@ Development of an ERP for health services in private medical hospitals.
 
 **Training**
 
-<img style="float: left;" src="https://projecteuler.net/profile/juanitodread.png">
+![project-euler](https://projecteuler.net/profile/juanitodread.png)

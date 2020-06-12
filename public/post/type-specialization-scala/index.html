@@ -4,10 +4,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Juan Sandoval">
-    <meta name="description" content="Juan Sandovals personal website">
+    <meta name="description" content="Use of specialized types in generic class and methods in Scala">
     <meta name="keywords" content="blog,developer,personal">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Type specialization in Scala"/>
@@ -16,30 +21,30 @@
     <meta property="og:title" content="Type specialization in Scala" />
 <meta property="og:description" content="Use of specialized types in generic class and methods in Scala" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://juanitodread.github.io/post/type-specialization-scala/" />
+<meta property="og:url" content="https://juanitodread.github.io/post/type-specialization-scala/" />
 <meta property="article:published_time" content="2016-04-11T09:36:02-05:00" />
 <meta property="article:modified_time" content="2016-04-11T09:36:02-05:00" />
 
 
     
-      <base href="http://juanitodread.github.io/post/type-specialization-scala/">
+      <base href="https://juanitodread.github.io/post/type-specialization-scala/">
     
     <title>
   Type specialization in Scala · @juanitodread
 </title>
 
     
-      <link rel="canonical" href="http://juanitodread.github.io/post/type-specialization-scala/">
+      <link rel="canonical" href="https://juanitodread.github.io/post/type-specialization-scala/">
     
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
     
       
       
-      <link rel="stylesheet" href="http://juanitodread.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://juanitodread.github.io/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -49,36 +54,42 @@
     
 
     
-    
-    <link rel="icon" type="image/png" href="http://juanitodread.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://juanitodread.github.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0" />
+    <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.72.0" />
   </head>
 
-  <body class=" ">
+  
+  
+  <body class="colorscheme-light"
+        onload=" twemoji.parse(document.body); "
+  >
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://juanitodread.github.io/">
+    <a class="navigation-title" href="https://juanitodread.github.io/">
       @juanitodread
     </a>
+    
     <input type="checkbox" id="menu-toggle" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://juanitodread.github.io/post/">Blog</a>
+            <a class="navigation-link" href="https://juanitodread.github.io/post/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://juanitodread.github.io/pages/cv">About</a>
+            <a class="navigation-link" href="https://juanitodread.github.io/pages/cv">About</a>
           </li>
         
       
       
     </ul>
+    
   </section>
 </nav>
 
@@ -92,63 +103,71 @@
     </header>
 
     <p><strong>Type Specialization</strong> in Scala is a mechanism that allows us to increase the performance in our code when we are writing generic code. When we have a generic class definition the compiler needs to set a real type to the generic class, this represents an extra cost.</p>
-
 <p>When our real type is one of the <em>primitive</em> types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropriate boxing and unboxing operations. Again, this will generate an extra cost.</p>
-
 <p>Since 2.8, Scala added specialized type parameters. This is just an annotation <code>@specialized</code> that can be used in any type parameter of a method or class definition. This annotation indicates to the compiler that in addition of the generic version of the class it is necessary to create <em>N</em> number of specialized versions of the defined class. The N number is determined by the definition of the annotation in the code.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedList</span><span style="color:#f92672">[</span><span style="color:#66d9ef">@specialized</span> <span style="color:#66d9ef">T</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">def</span> append<span style="color:#f92672">(</span><span style="color:#a6e22e">@specialized</span><span style="color:#f92672">(</span><span style="color:#a6e22e">Int</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">Long</span><span style="color:#f92672">)</span> node<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">T</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
     <span style="color:#75715e">//...
 </span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span> </code></pre></td></tr></table>
+<span style="color:#f92672">}</span> 
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>In this case, we have defined the generic class with two specialized types:</p>
-
+</div><p>In this case, we have defined the generic class with two specialized types:</p>
 <ul>
-<li><p>The first one is on the definition of the class. Note that the annotation does not have any additional argument in its declaration. This means that the compiler will generate specialized classes version of the class for all the primitive types in Scala.</p></li>
-
-<li><p>The second one is on the definition of the append method. Here we are adding two arguments: Int and Long. This means that the compiler will generate specialized classes versions of the class for the primitive types Int and Long (int, long).</p></li>
+<li>
+<p>The first one is on the definition of the class. Note that the annotation does not have any additional argument in its declaration. This means that the compiler will generate specialized classes version of the class for all the primitive types in Scala.</p>
+</li>
+<li>
+<p>The second one is on the definition of the append method. Here we are adding two arguments: Int and Long. This means that the compiler will generate specialized classes versions of the class for the primitive types Int and Long (int, long).</p>
+</li>
 </ul>
-
 <p>The compiler derives specialized definitions for all combinations of primitive types. Specialization is performed at the definition site in order to allow separate compilation. Each specialized class is derived from the original definition using specific combination of types and extends the generic class.</p>
-
 <p>When a generic class is used, first is verified if the class has specialized versions, if so, the specialized class is used whenever possible and boxing process is not performed, increasing the performance of the application at runtime.</p>
-
 <p>In general I think specialization is a great idea to increase runtime performance in our Scala code, but it also has a cost in compilation time because the compiler needs to generate additional specialized classes. So use <strong>@specialized</strong> judiciously.</p>
-
 <p>Here are more detailed information about Type Specialization in Scala:</p>
-
-<p><a href="http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf">http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf</a>
-<a href="http://www.scala-notes.org/2011/04/specializing-for-primitive-types/">http://www.scala-notes.org/2011/04/specializing-for-primitive-types/</a></p>
+<ul>
+<li><a href="http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf">http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf</a></li>
+<li><a href="http://www.scala-notes.org/2011/04/specializing-for-primitive-types/">http://www.scala-notes.org/2011/04/specializing-for-primitive-types/</a></li>
+</ul>
 
   </article>
 </section>
 
+  
 
       </div>
 
-      <footer class="footer">
-  <section class="container">
-    
-      <p>Personal website</p>
-    
-     © 2019
-    
-    
-  </section>
-</footer>
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2015 -
+        
+        2020
+         Juan Sandoval 
+      
+      
+      
+    </section>
+  </footer>
 
     </main>
+
+    
+
+    
 
     
 
