@@ -21,13 +21,13 @@ I chose to run Scalariform from my SBT script. The default behavior is that Scal
 
 The only thing you need to do is add the Scalariform plugin into the plugins.sbt file. The file is located in:
 
-```shell
-root-play-project/project/plugins.sbt
+```sh
+ root-play-project/project/plugins.sbt
 ```
 To use the plugin just add this line in *plugins.sbt*
 
-```shell
-addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.6.0")
+```sh
+ addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.6.0")
 ```
 
 And that's all!. 

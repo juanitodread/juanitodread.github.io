@@ -22,22 +22,36 @@ disqusShortname = "juanitodread"
 [author]
     name = "Juan Antonio Sandoval Delgado"
 [indexes]
-       category = "categories"
-       tag = "tags"
+    category = "categories"
+    tag = "tags"
 [Params]
     author = "Juan Sandoval"
     info = "Software Developer Engineer"
-    description = "Juan Sandovals personal website"
+    description = "Juan Sandoval's personal website"
     keywords = "blog,developer,personal"
     avatarurl = "/images/me.jpg"
+    since = 2015
+
+    dateformat = "January 2, 2006"
 
     footercontent = ""
 
+    hideFooter = false
     hidecredits = true
     hidecopyright = false
 
+    # Specify light/dark colorscheme
+    # Supported values:
+    # "auto" (use preference set by browser)
+    # "dark" (dark background, light foreground)
+    # "light" (light background, dark foreground) (default)
+    colorscheme = "light"
+
     rtl = false
     math = false
+
+    # Enable Twemoji
+    enableTwemoji = true
 
 # Menu links
 [[menu.main]]
@@ -50,9 +64,9 @@ disqusShortname = "juanitodread"
     url = "/pages/cv"
 
 [taxonomies]
-  category = "categories"
-  series = "series"
-  tag = "tags"
+    category = "categories"
+    series = "series"
+    tag = "tags"
 
 [[Params.social]]
     name = "Github"
@@ -84,4 +98,3 @@ disqusShortname = "juanitodread"
     icon = "fab fa-flickr"
     weight = 6
     url = "https://www.flickr.com/photos/juanitodread/"
-
