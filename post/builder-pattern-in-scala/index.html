@@ -58,7 +58,7 @@
     <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0" />
+    <meta name="generator" content="Hugo 0.72.0" />
   </head>
 
   
@@ -103,18 +103,13 @@
     </header>
 
     <p>The <em>Builder Pattern</em> is a design pattern for create objects. The builder pattern allows to the user the creation of an object that requires a lot of parameters in its constructor.</p>
-
 <p>The problem with objects that requires different parameters to be constructed is that the programmer will need to overload the constructor to support all the distinct combinations of parameters.</p>
-
 <p>In <em>Java</em> is very common to create a new class (the builder) object that will receives all the parameters and builds a new object with the parameters received. I think the most known builder in Java is <strong>StringBuilder</strong>. In <strong>Scala</strong> we can use two Scala features to support a very similar behavior:</p>
-
 <ul>
 <li>Case classes</li>
 <li>Pattern matching <em>(Optional, Pattern matching will allow us to restrict invalid object creations)</em></li>
 </ul>
-
 <p>A very common and simple example for builder objects is to represent pizzas :D. Suppose we need to create pizzas, our pizzas can have different ingredients:</p>
-
 <ul>
 <li>Mozzarella</li>
 <li>Pepperoni</li>
@@ -123,36 +118,34 @@
 <li>Ham</li>
 <li>Pineapple</li>
 </ul>
-
 <p>The first step is create our pizza model, we will use <strong>case classes</strong>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="color:#66d9ef">case</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Pizza</span><span style="color:#f92672">(</span>ingredients<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">String</span><span style="color:#f92672">],</span>
                  cheese<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mozzarella&#34;</span><span style="color:#f92672">,</span>
-                 size<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;medium&#34;</span><span style="color:#f92672">)</span></code></pre></td></tr></table>
+                 size<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;medium&#34;</span><span style="color:#f92672">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Now, any developer can use our pizza class to create pizzas :D</p>
-
+</div><p>Now, any developer can use our pizza class to create pizzas :D</p>
 <p>Let&rsquo;s create three different pizzas:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="color:#66d9ef">val</span> italian <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pizza</span><span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Pepperoni&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Mushrooms&#34;</span><span style="color:#f92672">))</span>
 <span style="color:#66d9ef">val</span> hawaiian <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pizza</span><span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ham&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Pineapple&#34;</span><span style="color:#f92672">),</span> size <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;Small&#34;</span><span style="color:#f92672">)</span>
-<span style="color:#66d9ef">val</span> meat <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pizza</span><span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ham&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Bacon&#34;</span><span style="color:#f92672">),</span> cheese <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;Cheddar&#34;</span><span style="color:#f92672">)</span></code></pre></td></tr></table>
+<span style="color:#66d9ef">val</span> meat <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pizza</span><span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ham&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Bacon&#34;</span><span style="color:#f92672">),</span> cheese <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;Cheddar&#34;</span><span style="color:#f92672">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>As you can see, now you can create different kind of pizzas without problems.</p>
+</div><p>As you can see, now you can create different kind of pizzas without problems.</p>
 
   </article>
 </section>
