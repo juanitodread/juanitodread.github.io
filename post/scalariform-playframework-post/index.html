@@ -58,7 +58,7 @@
     <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.56.0" />
+    <meta name="generator" content="Hugo 0.72.0" />
   </head>
 
   
@@ -103,39 +103,33 @@
     </header>
 
     <p>In the last days I have been playing with some powerful tools for start web applications in a fast and easy way that resides on the Cloud. These tools are:</p>
-
 <ul>
 <li><a href="https://www.playframework.com/">Playframework</a> As my web framework. It is really easy to start a web application on Play and is oriented to REST. Play supports Scala or Java as a language (I recommend to use Scala).</li>
 <li><a href="https://www.heroku.com/home">Heroku</a> It is really simple to deploy a Scala application. I tried Openshift but is more complicated since they don&rsquo;t have an environment for Scala (You need to use a DIY).</li>
 <li><a href="https://www.mongodb.org/">MongoDB</a> Really easy and powerful NoSQL database.</li>
 </ul>
-
 <p>You can check the app <a href="https://crud-lab.herokuapp.com/">here</a>.</p>
-
 <p>Finally after some attempts I was able to run my sample application. I was using Atom as my code editor (I needed to add a plugin to recognize the Scala syntax). I can say that Atom is a really good tool to edit Scala files but it doesn&rsquo;t have plugins to format code like Eclipse or Intellij IDEA. Fortunately exists a tool in Scala (<a href="https://github.com/scala-ide/scalariform">Scalariform</a>) to format the code. You can run as an external tool or include in your SBT (Also is the plugin that Eclipse uses to format the code).</p>
-
 <p>I chose to run Scalariform from my SBT script. The default behavior is that Scalariform is executed when the code is compiled but you can change the default behavior. I use the default behavior.</p>
-
 <p>The only thing you need to do is add the Scalariform plugin into the plugins.sbt file. The file is located in:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"> root-play-project/project/plugins.sbt</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"> root-play-project/project/plugins.sbt
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>To use the plugin just add this line in <em>plugins.sbt</em></p>
+</div><p>To use the plugin just add this line in <em>plugins.sbt</em></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"> addSbtPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.scalariform&#34;</span> % <span style="color:#e6db74">&#34;sbt-scalariform&#34;</span> % <span style="color:#e6db74">&#34;1.6.0&#34;</span><span style="color:#f92672">)</span></code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"> addSbtPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.scalariform&#34;</span> % <span style="color:#e6db74">&#34;sbt-scalariform&#34;</span> % <span style="color:#e6db74">&#34;1.6.0&#34;</span><span style="color:#f92672">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>And that&rsquo;s all!.</p>
-
+</div><p>And that&rsquo;s all!.</p>
 <p>Now on every project compilation Scalariform will format all the Scala code :D. You can modify the default settings of Scalariform if you want a different style. The recommendation is to use the <a href="http://docs.scala-lang.org/style/declarations.html">Scala Style Guide</a></p>
 
   </article>
