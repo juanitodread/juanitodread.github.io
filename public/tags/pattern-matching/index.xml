@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pattern Matching on @juanitodread</title>
-    <link>http://juanitodread.github.io/tags/pattern-matching/</link>
+    <link>https://juanitodread.github.io/tags/pattern-matching/</link>
     <description>Recent content in Pattern Matching on @juanitodread</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
     <lastBuildDate>Thu, 03 Mar 2016 23:47:44 -0600</lastBuildDate>
     
-	<atom:link href="http://juanitodread.github.io/tags/pattern-matching/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://juanitodread.github.io/tags/pattern-matching/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Builder pattern in Scala</title>
-      <link>http://juanitodread.github.io/post/builder-pattern-in-scala/</link>
+      <link>https://juanitodread.github.io/post/builder-pattern-in-scala/</link>
       <pubDate>Thu, 03 Mar 2016 23:47:44 -0600</pubDate>
       
-      <guid>http://juanitodread.github.io/post/builder-pattern-in-scala/</guid>
+      <guid>https://juanitodread.github.io/post/builder-pattern-in-scala/</guid>
       <description>The Builder Pattern is a design pattern for create objects. The builder pattern allows to the user the creation of an object that requires a lot of parameters in its constructor.
 The problem with objects that requires different parameters to be constructed is that the programmer will need to overload the constructor to support all the distinct combinations of parameters.
 In Java is very common to create a new class (the builder) object that will receives all the parameters and builds a new object with the parameters received.</description>

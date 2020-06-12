@@ -36,5 +36,5 @@ In general I think specialization is a great idea to increase runtime performanc
 Here are more detailed information about Type Specialization in Scala:
 
 
-[http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf](http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf)
-[http://www.scala-notes.org/2011/04/specializing-for-primitive-types/](http://www.scala-notes.org/2011/04/specializing-for-primitive-types/)
+* [http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf](http://www.scala-lang.org/old/sites/default/files/sids/dragos/Thu,%202010-05-06,%2017:56/sid-spec.pdf)
+* [http://www.scala-notes.org/2011/04/specializing-for-primitive-types/](http://www.scala-notes.org/2011/04/specializing-for-primitive-types/)

@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Performance on @juanitodread</title>
-    <link>http://juanitodread.github.io/tags/performance/</link>
+    <link>https://juanitodread.github.io/tags/performance/</link>
     <description>Recent content in Performance on @juanitodread</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
     <lastBuildDate>Mon, 11 Apr 2016 09:36:02 -0500</lastBuildDate>
     
-	<atom:link href="http://juanitodread.github.io/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://juanitodread.github.io/tags/performance/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Type specialization in Scala</title>
-      <link>http://juanitodread.github.io/post/type-specialization-scala/</link>
+      <link>https://juanitodread.github.io/post/type-specialization-scala/</link>
       <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
       
-      <guid>http://juanitodread.github.io/post/type-specialization-scala/</guid>
+      <guid>https://juanitodread.github.io/post/type-specialization-scala/</guid>
       <description>Type Specialization in Scala is a mechanism that allows us to increase the performance in our code when we are writing generic code. When we have a generic class definition the compiler needs to set a real type to the generic class, this represents an extra cost.
 When our real type is one of the primitive types (in Scala primitive types are treated as objects. Wrapped objects) the compiler needs to add appropriate boxing and unboxing operations.</description>
     </item>
