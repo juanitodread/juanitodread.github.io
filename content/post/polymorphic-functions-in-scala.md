@@ -1,7 +1,7 @@
 ---
-title: "[DRAFT] Polymorphic functions in Scala"
+title: "Polymorphic functions in Scala"
 description: "How to implement polymorphic functions in Scala (FPIS series)"
-date: 2022-01-12T18:49:28-08:00
+date: 2022-01-13T15:49:28-08:00
 tags: ["Scala", "functional-programming", "polymorphic-function", "parametric-polymorphism", "recursion", "tail-recursion"]
 categories: ["Development", "functional-programming"]
 draft: true
@@ -21,19 +21,21 @@ draft: true
 
 ## 1. Introduction
 
-**Polymorphic function** is a very common term in *Functional Programming*. 
+A **Polymorphic function** is a very common term in *Functional Programming*. 
 
-In *Object Oriented Programming (OOP)* also exists the concept of *"Polymorphism"* but it refers to objects and inheritance.
+In *Object-Oriented Programming (OOP)* also exists the concept of *"Polymorphism"* but it refers to objects and inheritance.
 
 A polymorphic function is a function that can work for _any_ data type it's given. Polymorphic functions are also known as *Parametric polymorphism*.
 
-As you can see, the definition is very simple: *"A function that accepts any type"*. But first, let's start with the basics. 
+As you can see, the definition is very simple: *"A function that accepts any type"*. But first, let's start with the basics.
+
+**Note:** You can copy/paste the code and run it in the *Scala REPL*. The code is written in *Scala 3* new syntax but we are not using any new Scala 3 feature.
 
 
 ## 2. Functions
 ### 2.1 Monomorphic function
 
-I want to start with the implementation of a function that checks if a list of integers `List[Int]` is sorted. Something like this:
+I want to start with the implementation of a function that checks whether a list of integers `List[Int]` is sorted. Something like this:
 
 ```scala
 def isSorted(elements: List[Int]): Boolean = 
@@ -49,9 +51,9 @@ def isSorted(elements: List[Int]): Boolean =
   loop(elements.length - 1)
 ```
 
-`isSorted` is a function that given a list of integers returns `true` only if the elements are sorted in ascending order, otherwise it returns `false`. 
+`isSorted` is a function that given a list of integers returns `true` only if the elements are sorted in ascending order, otherwise, it returns `false`. 
 
-The implementation of `isSorted` consists of a *local recursive* function `loop` which verifies that the elements of the list are sorted. 
+The implementation of `isSorted` consists of a *local recursive* function `loop` that verifies that the elements of the list are sorted. 
 
 Let's try with some lists of integers in the **Scala REPL**:
 
@@ -78,7 +80,7 @@ scala> isSorted(List.empty)
 val res7: Boolean = true
 ```
 
-The function is working as expected. `isSorted` recives a list of integers and verifies that the elements of the list are sorted. So far, `isSorted` is a **monomorphic function**. It can only process lists of integers. If I'd to verify if a list of floating point numbers are sorted `List[Double]`, I couldn't use `isSorted` because the Scala compiler would throw an error. Let's try:
+The function is working as expected. `isSorted` receives a list of integers and verifies that the elements of the list are sorted. So far, `isSorted` is a **monomorphic function**. It can only process lists of integers. If I'd like to verify if a list of floating-point numbers is sorted `List[Double]`, I couldn't use `isSorted` because the Scala compiler would throw an error. Let's try:
 
 ```java
 scala> isSorted(List(1.2, 1.5, 1.7))
@@ -99,17 +101,17 @@ scala> isSorted(List(1.2, 1.5, 1.7))
   |                        Required: Int
 ```
 
-To fix this problem, we can write another function for lists of doubles `def isSorted(elements: List[Double])` but the problem with this approach is that we will basically duplicate the code for a different type and what if we want to apply the same functionality to lists of booleans or lists of strings?. This alternative is not going to *scale*. 
+To fix this problem, we can write another function for lists of doubles `def isSorted(elements: List[Double])` but the problem with this approach is that we will duplicate the code for a different type and what if we want to apply the same functionality to lists of booleans or lists of strings?. This alternative is not going to *scale*. 
 
 Another approach is to make `isSorted` a **Polymorphic function** which basically can process a list of *any* type.
 
 # 2.2 Polymorphic function
 
-In order to make `isSorted` a Polymorphic function, we need to apply some changes. 
+To make `isSorted` a Polymorphic function, we need to apply some changes. 
 
-What we are going to do first is to *"parametrize"* the function adding the *parameter type* `A` between brackets after the name of the function, so that Scala compiler detects this is a *Polymorphic function*: `isSorted[A]`. This new *type parameter* `A` can be used in the parameters of our function and will allow us to define the list parameter as `List[A]` which can be a list of any type. 
+What we are going to do first is to *"parametrize"* the function by adding the *parameter type* `A` between brackets after the name of the function, so that the Scala compiler detects this is a *Polymorphic function*: `isSorted[A]`. This new *type parameter* `A` can be used in the parameters of our function and will allow us to define the list parameter as `List[A]` which can be a list of any type. 
 
-Another change we need to do is to define a second parameter which is a function that is going to be used to verify if two elements of the list are ordered. As you can see, this new parameter is required because now we can process *any* type, so we can't use integer comparison (`<, >, <=, >=`) anymore, but Scala allow us to define functions as parameters and in this case we can let users to provide their custom *comparison function* according to the type they want to verify. This bring us better *flexibility* and *scalability* to our code. 
+Another change we need to do is to define a second parameter which is a function that is going to be used to verify if two elements of the list are ordered. As you can see, this new parameter is required because now we can process *any* type, so we can't use integer comparison (`<, >, <=, >=`) anymore, but Scala allows us to define functions as parameters and in this case, we can let users provide their custom *comparison function* according to the type they want to verify. This brings *flexibility* and *scalability* to our code. 
 
 ```scala
 def isSorted[A](elements: List[A], ordered: (A, A) => Boolean): Boolean = ??? 
@@ -139,7 +141,7 @@ scala> isSorted(List(2,4,6), (current, next) => current < next)
 val res1: Boolean = true
 ```
 
-`(current, next) => current < next` is a *lambda function* or *annonymous function* that is used internally in `isSorted` to verify two elements of the list (current and next), if `current` is less than `next` which means those two elements are sorted, and is applied to each element of the list. 
+`(current, next) => current < next` is a *lambda function* or *anonymous function* that is used internally in `isSorted` to verify two elements of the list (current and next), if `current` is less than `next` which means those two elements are sorted, and if is applied to each element of the list. 
 
 The flexibility of this approach is such that I can also apply `isSorted` and verify if the order is descendent `List(3, 2, 1)`. I only need to provide a different `ordered` function. Let's do it:
 
@@ -162,7 +164,7 @@ scala> isSorted(List(3, 5, 2, 1), descendentOrder)
 val res2: Boolean = false
 ```
 
-As you can see, making the function *polymorphic* provides us better flexiblity and scalability. Now we can define *the criteria* we want to use to compare the elements of the list and verify if the list comply or not with the given criteria.
+As you can see, making the function *polymorphic* provides us with better flexibility and scalability. Now we can define *the criteria* we want to use to compare the elements of the list and verify if the list complies or not with the given criteria.
 
 #### 2.2.2 Verifying sorting in a list of Double
 
@@ -176,7 +178,7 @@ scala> isSorted(List(2.3, 2.2, 3.0), (current, next) => current <= next)
 val res2: Boolean = false
 ```
 
-It works! :smile:. 
+It works! :smile: 
 
 #### 2.2.3 Verifying sorting in a list of Boolean
 How about booleans?
@@ -190,7 +192,7 @@ It also works!
 
 
 #### 2.2.4 Verifying sorting in a list of String
-We can even apply the same comparison function to a list of strings due Scala has implementation for comparison operators for `String`:
+We can even apply the same comparison function to a list of strings due to Scala has an implementation for comparison operators for `String`:
 
 ```scala
 scala> isSorted(List("aa", "bb", "cc"), (current, next) => current <= next)
@@ -227,3 +229,8 @@ val res40: Boolean = false
 ```
 
 ## 3. Conclusion
+In this post, we explored a powerful technique in the **Functional Programming** paradigm. 
+
+First, we started analyzing a simple function that verifies if a list of integers is sorted or not. This function is pretty much similar in structure and functionality to any other functions that we write in our daily job. Then we continued applying some changes to make it more flexible and scalable using the *Polymorphic Function* paradigm through *generic* type parameters.
+
+*Polymorphic Functions* can be used to reduce code duplication and generalize the behavior of a function for a common set of types. We just need to start considering an initial type and then start iterating over the next types we want to support.
