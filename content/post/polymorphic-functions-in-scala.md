@@ -4,7 +4,7 @@ description: "How to implement polymorphic functions in Scala (FPIS series)"
 date: 2022-01-13T15:49:28-08:00
 tags: ["Scala", "functional-programming", "polymorphic-function", "parametric-polymorphism", "recursion", "tail-recursion"]
 categories: ["Development", "functional-programming"]
-draft: true
+draft: false
 ---
 
 * [1. Introduction](#1-Introduction)
@@ -105,7 +105,7 @@ To fix this problem, we can write another function for lists of doubles `def isS
 
 Another approach is to make `isSorted` a **Polymorphic function** which basically can process a list of *any* type.
 
-# 2.2 Polymorphic function
+### 2.2 Polymorphic function
 
 To make `isSorted` a Polymorphic function, we need to apply some changes. 
 
