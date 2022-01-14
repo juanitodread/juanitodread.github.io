@@ -7,22 +7,67 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 11 Apr 2016 09:36:02 -0500</lastBuildDate><atom:link href="https://juanitodread.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jan 2022 15:49:28 -0800</lastBuildDate><atom:link href="https://juanitodread.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Performance</title>
-      <link>https://juanitodread.github.io/tags/performance/</link>
-      <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
+      <title>functional-programming</title>
+      <link>https://juanitodread.github.io/tags/functional-programming/</link>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
       
-      <guid>https://juanitodread.github.io/tags/performance/</guid>
+      <guid>https://juanitodread.github.io/tags/functional-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>parametric-polymorphism</title>
+      <link>https://juanitodread.github.io/tags/parametric-polymorphism/</link>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
+      
+      <guid>https://juanitodread.github.io/tags/parametric-polymorphism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>polymorphic-function</title>
+      <link>https://juanitodread.github.io/tags/polymorphic-function/</link>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
+      
+      <guid>https://juanitodread.github.io/tags/polymorphic-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recursion</title>
+      <link>https://juanitodread.github.io/tags/recursion/</link>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
+      
+      <guid>https://juanitodread.github.io/tags/recursion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Scala</title>
       <link>https://juanitodread.github.io/tags/scala/</link>
-      <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
       
       <guid>https://juanitodread.github.io/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tail-recursion</title>
+      <link>https://juanitodread.github.io/tags/tail-recursion/</link>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
+      
+      <guid>https://juanitodread.github.io/tags/tail-recursion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Performance</title>
+      <link>https://juanitodread.github.io/tags/performance/</link>
+      <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
+      
+      <guid>https://juanitodread.github.io/tags/performance/</guid>
       <description></description>
     </item>
     
