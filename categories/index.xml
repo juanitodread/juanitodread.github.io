@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 11 Apr 2016 09:36:02 -0500</lastBuildDate><atom:link href="https://juanitodread.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jan 2022 15:49:28 -0800</lastBuildDate><atom:link href="https://juanitodread.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Development</title>
       <link>https://juanitodread.github.io/categories/development/</link>
-      <pubDate>Mon, 11 Apr 2016 09:36:02 -0500</pubDate>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
       
       <guid>https://juanitodread.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>functional-programming</title>
+      <link>https://juanitodread.github.io/categories/functional-programming/</link>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
+      
+      <guid>https://juanitodread.github.io/categories/functional-programming/</guid>
       <description></description>
     </item>
     
