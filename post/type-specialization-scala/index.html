@@ -59,7 +59,7 @@
     <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.84.0" />
+    <meta name="generator" content="Hugo 0.91.2" />
   </head>
 
   
@@ -108,14 +108,14 @@
 <p>Since 2.8, Scala added specialized type parameters. This is just an annotation <code>@specialized</code> that can be used in any type parameter of a method or class definition. This annotation indicates to the compiler that in addition of the generic version of the class it is necessary to create <em>N</em> number of specialized versions of the defined class. The N number is determined by the definition of the annotation in the code.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedList</span><span style="color:#f92672">[</span><span style="color:#66d9ef">@specialized</span> <span style="color:#66d9ef">T</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scala" data-lang="Scala"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LinkedList</span><span style="color:#f92672">[</span><span style="color:#66d9ef">@specialized</span> <span style="color:#66d9ef">T</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">def</span> append<span style="color:#f92672">(</span><span style="color:#a6e22e">@specialized</span><span style="color:#f92672">(</span><span style="color:#a6e22e">Int</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">Long</span><span style="color:#f92672">)</span> node<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">T</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
     <span style="color:#75715e">//...
 </span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
@@ -156,7 +156,7 @@
         
           2015 -
         
-        2021
+        2022
          • Juan Sandoval • 
       
       

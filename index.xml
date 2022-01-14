@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 11 Apr 2016 09:36:02 -0500</lastBuildDate><atom:link href="https://juanitodread.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jan 2022 15:49:28 -0800</lastBuildDate><atom:link href="https://juanitodread.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Polymorphic functions in Scala</title>
+      <link>https://juanitodread.github.io/post/polymorphic-functions-in-scala/</link>
+      <pubDate>Thu, 13 Jan 2022 15:49:28 -0800</pubDate>
+      
+      <guid>https://juanitodread.github.io/post/polymorphic-functions-in-scala/</guid>
+      <description>1. Introduction 2. Functions  2.1 Monomorphic function 2.2 Polymorphic function  2.2.1 Verifying sorting in descendent order 2.2.2 Verifying sorting in a list of Double 2.2.3 Verifying sorting in a list of Boolean 2.2.4 Verifying sorting in a list of String  2.2.4.1 Verifying sorting based on string’s length       3. Conclusion  1. Introduction A Polymorphic function is a very common term in Functional Programming.</description>
+    </item>
+    
     <item>
       <title>Type specialization in Scala</title>
       <link>https://juanitodread.github.io/post/type-specialization-scala/</link>

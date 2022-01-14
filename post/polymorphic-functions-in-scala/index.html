@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="• Juan Sandoval •">
+    <meta name="description" content="How to implement polymorphic functions in Scala (FPIS series)">
+    <meta name="keywords" content="blog,developer,personal">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Polymorphic functions in Scala"/>
+<meta name="twitter:description" content="How to implement polymorphic functions in Scala (FPIS series)"/>
+
+    <meta property="og:title" content="Polymorphic functions in Scala" />
+<meta property="og:description" content="How to implement polymorphic functions in Scala (FPIS series)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://juanitodread.github.io/post/polymorphic-functions-in-scala/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-13T15:49:28-08:00" />
+<meta property="article:modified_time" content="2022-01-13T15:49:28-08:00" />
+
+
+
+    
+      <base href="https://juanitodread.github.io/post/polymorphic-functions-in-scala/">
+    
+    <title>
+  Polymorphic functions in Scala · @juanitodread
+</title>
+
+    
+      <link rel="canonical" href="https://juanitodread.github.io/post/polymorphic-functions-in-scala/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://juanitodread.github.io/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://juanitodread.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.91.2" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://juanitodread.github.io/">
+      @juanitodread
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://juanitodread.github.io/post/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://juanitodread.github.io/pages/cv">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Polymorphic functions in Scala</h1>
+    </header>
+
+    <ul>
+<li><a href="#1-Introduction">1. Introduction</a></li>
+<li><a href="#2-functions">2. Functions</a>
+<ul>
+<li><a href="#21-monomorphic-function">2.1 Monomorphic function</a></li>
+<li><a href="#22-polymorphic-function">2.2 Polymorphic function</a>
+<ul>
+<li><a href="#221-verifying-sorting-in-descendent-order">2.2.1 Verifying sorting in descendent order</a></li>
+<li><a href="#222-verifying-sorting-in-a-list-of-double">2.2.2 Verifying sorting in a list of Double</a></li>
+<li><a href="#223-verifying-sorting-in-a-list-of-boolean">2.2.3 Verifying sorting in a list of Boolean</a></li>
+<li><a href="#224-verifying-sorting-in-a-list-of-string">2.2.4 Verifying sorting in a list of String</a>
+<ul>
+<li><a href="#2241-verifying-sorting-based-on-strings-length">2.2.4.1 Verifying sorting based on string’s length</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-conclusion">3. Conclusion</a></li>
+</ul>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>A <strong>Polymorphic function</strong> is a very common term in <em>Functional Programming</em>.</p>
+<p>In <em>Object-Oriented Programming (OOP)</em> also exists the concept of <em>&ldquo;Polymorphism&rdquo;</em> but it refers to objects and inheritance.</p>
+<p>A polymorphic function is a function that can work for <em>any</em> data type it&rsquo;s given. Polymorphic functions are also known as <em>Parametric polymorphism</em>.</p>
+<p>As you can see, the definition is very simple: <em>&ldquo;A function that accepts any type&rdquo;</em>. But first, let&rsquo;s start with the basics.</p>
+<p><strong>Note:</strong> You can copy/paste the code and run it in the <em>Scala REPL</em>. The code is written in <em>Scala 3</em> new syntax but we are not using any new Scala 3 feature.</p>
+<h2 id="2-functions">2. Functions</h2>
+<h3 id="21-monomorphic-function">2.1 Monomorphic function</h3>
+<p>I want to start with the implementation of a function that checks whether a list of integers <code>List[Int]</code> is sorted. Something like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">def</span> isSorted<span style="color:#f92672">(</span>elements<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Int</span><span style="color:#f92672">])</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> 
+  <span style="color:#a6e22e">@annotation</span><span style="color:#f92672">.</span>tailrec
+  <span style="color:#66d9ef">def</span> loop<span style="color:#f92672">(</span>index<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span>
+    <span style="color:#66d9ef">if</span> elements<span style="color:#f92672">.</span>length <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> index <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> then
+      <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> elements<span style="color:#f92672">(</span>index <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">&gt;</span>  elements<span style="color:#f92672">(</span>index<span style="color:#f92672">)</span> then
+      <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">else</span>
+      loop<span style="color:#f92672">(</span>index <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
+  
+  loop<span style="color:#f92672">(</span>elements<span style="color:#f92672">.</span>length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>isSorted</code> is a function that given a list of integers returns <code>true</code> only if the elements are sorted in ascending order, otherwise, it returns <code>false</code>.</p>
+<p>The implementation of <code>isSorted</code> consists of a <em>local recursive</em> function <code>loop</code> that verifies that the elements of the list are sorted.</p>
+<p>Let&rsquo;s try with some lists of integers in the <strong>Scala REPL</strong>:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">))</span>
+<span style="color:#66d9ef">val</span> res1<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">6</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">))</span>
+<span style="color:#66d9ef">val</span> res2<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(-</span><span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">))</span>
+<span style="color:#66d9ef">val</span> res3<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(-</span><span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span><span style="color:#f92672">))</span>
+<span style="color:#66d9ef">val</span> res4<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">))</span>
+<span style="color:#66d9ef">val</span> res5<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">2</span><span style="color:#f92672">))</span>
+<span style="color:#66d9ef">val</span> res6<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">.</span>empty<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res7<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The function is working as expected. <code>isSorted</code> receives a list of integers and verifies that the elements of the list are sorted. So far, <code>isSorted</code> is a <strong>monomorphic function</strong>. It can only process lists of integers. If I&rsquo;d like to verify if a list of floating-point numbers is sorted <code>List[Double]</code>, I couldn&rsquo;t use <code>isSorted</code> because the Scala compiler would throw an error. Let&rsquo;s try:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">scala<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">isSorted</span><span style="color:#f92672">(</span>List<span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">2</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">7</span><span style="color:#f92672">))</span>
+<span style="color:#f92672">--</span> Error<span style="color:#f92672">:</span>
+1 <span style="color:#f92672">|</span>isSorted<span style="color:#f92672">(</span>List<span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">2</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">7</span><span style="color:#f92672">))</span>
+  <span style="color:#f92672">|</span>              <span style="color:#f92672">^^^</span>
+  <span style="color:#f92672">|</span>              Found<span style="color:#f92672">:</span>    <span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">2d</span> <span style="color:#f92672">:</span> Double<span style="color:#f92672">)</span>
+  <span style="color:#f92672">|</span>              Required<span style="color:#f92672">:</span> Int
+<span style="color:#f92672">--</span> Error<span style="color:#f92672">:</span>
+1 <span style="color:#f92672">|</span>isSorted<span style="color:#f92672">(</span>List<span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">2</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">7</span><span style="color:#f92672">))</span>
+  <span style="color:#f92672">|</span>                   <span style="color:#f92672">^^^</span>
+  <span style="color:#f92672">|</span>                   Found<span style="color:#f92672">:</span>    <span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">5d</span> <span style="color:#f92672">:</span> Double<span style="color:#f92672">)</span>
+  <span style="color:#f92672">|</span>                   Required<span style="color:#f92672">:</span> Int
+<span style="color:#f92672">--</span> Error<span style="color:#f92672">:</span>
+1 <span style="color:#f92672">|</span>isSorted<span style="color:#f92672">(</span>List<span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">2</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">.</span><span style="color:#a6e22e">7</span><span style="color:#f92672">))</span>
+  <span style="color:#f92672">|</span>                        <span style="color:#f92672">^^^</span>
+  <span style="color:#f92672">|</span>                        Found<span style="color:#f92672">:</span>    <span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">7d</span> <span style="color:#f92672">:</span> Double<span style="color:#f92672">)</span>
+  <span style="color:#f92672">|</span>                        Required<span style="color:#f92672">:</span> Int
+</code></pre></td></tr></table>
+</div>
+</div><p>To fix this problem, we can write another function for lists of doubles <code>def isSorted(elements: List[Double])</code> but the problem with this approach is that we will duplicate the code for a different type and what if we want to apply the same functionality to lists of booleans or lists of strings?. This alternative is not going to <em>scale</em>.</p>
+<p>Another approach is to make <code>isSorted</code> a <strong>Polymorphic function</strong> which basically can process a list of <em>any</em> type.</p>
+<h3 id="22-polymorphic-function">2.2 Polymorphic function</h3>
+<p>To make <code>isSorted</code> a Polymorphic function, we need to apply some changes.</p>
+<p>What we are going to do first is to <em>&ldquo;parametrize&rdquo;</em> the function by adding the <em>parameter type</em> <code>A</code> between brackets after the name of the function, so that the Scala compiler detects this is a <em>Polymorphic function</em>: <code>isSorted[A]</code>. This new <em>type parameter</em> <code>A</code> can be used in the parameters of our function and will allow us to define the list parameter as <code>List[A]</code> which can be a list of any type.</p>
+<p>Another change we need to do is to define a second parameter which is a function that is going to be used to verify if two elements of the list are ordered. As you can see, this new parameter is required because now we can process <em>any</em> type, so we can&rsquo;t use integer comparison (<code>&lt;, &gt;, &lt;=, &gt;=</code>) anymore, but Scala allows us to define functions as parameters and in this case, we can let users provide their custom <em>comparison function</em> according to the type they want to verify. This brings <em>flexibility</em> and <em>scalability</em> to our code.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">def</span> isSorted<span style="color:#f92672">[</span><span style="color:#66d9ef">A</span><span style="color:#f92672">](</span>elements<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">A</span><span style="color:#f92672">],</span> ordered<span style="color:#66d9ef">:</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">A</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">A</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">Boolean</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#f92672">???</span> 
+
+</code></pre></td></tr></table>
+</div>
+</div><p>This is the implementation of our <em>Polymorphic</em> function <code>isSorted</code>: 🎉</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">def</span> isSorted<span style="color:#f92672">[</span><span style="color:#66d9ef">A</span><span style="color:#f92672">](</span>elements<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">A</span><span style="color:#f92672">],</span> ordered<span style="color:#66d9ef">:</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">A</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">A</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">Boolean</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span>
+  <span style="color:#a6e22e">@annotation</span><span style="color:#f92672">.</span>tailrec
+  <span style="color:#66d9ef">def</span> loop<span style="color:#f92672">(</span>index<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> 
+    <span style="color:#66d9ef">if</span> elements<span style="color:#f92672">.</span>length <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> index <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> then
+      <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>ordered<span style="color:#f92672">(</span>elements<span style="color:#f92672">(</span>index <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">),</span> elements<span style="color:#f92672">(</span>index<span style="color:#f92672">))</span> then
+      <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">else</span>
+      loop<span style="color:#f92672">(</span>index <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
+
+  loop<span style="color:#f92672">(</span>elements<span style="color:#f92672">.</span>length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now I can apply <code>isSorted</code> to a list of integers:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">2</span><span style="color:#f92672">,</span><span style="color:#ae81ff">4</span><span style="color:#f92672">,</span><span style="color:#ae81ff">6</span><span style="color:#f92672">),</span> <span style="color:#f92672">(</span>current<span style="color:#f92672">,</span> next<span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current <span style="color:#f92672">&lt;</span> next<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res1<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>(current, next) =&gt; current &lt; next</code> is a <em>lambda function</em> or <em>anonymous function</em> that is used internally in <code>isSorted</code> to verify two elements of the list (current and next), if <code>current</code> is less than <code>next</code> which means those two elements are sorted, and if is applied to each element of the list.</p>
+<p>The flexibility of this approach is such that I can also apply <code>isSorted</code> and verify if the order is descendent <code>List(3, 2, 1)</code>. I only need to provide a different <code>ordered</code> function. Let&rsquo;s do it:</p>
+<h4 id="221-verifying-sorting-in-descendent-order">2.2.1 Verifying sorting in descendent order</h4>
+<p>In this case, we create the <code>descendentOrder</code> variable and assign it the lambda, just to show you that you can also define a <em>lambda</em> and assign it to a variable, even though you can also return it as a result of a function because functions and lambdas are high order citizens in Scala.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> descendentOrder <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>current<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">,</span> next<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current <span style="color:#f92672">&gt;=</span> next
+
+</code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s use <code>descendentOrder</code> function in our <code>isSorted</code> function.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">),</span> descendentOrder<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res1<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">),</span> descendentOrder<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res2<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>As you can see, making the function <em>polymorphic</em> provides us with better flexibility and scalability. Now we can define <em>the criteria</em> we want to use to compare the elements of the list and verify if the list complies or not with the given criteria.</p>
+<h4 id="222-verifying-sorting-in-a-list-of-double">2.2.2 Verifying sorting in a list of Double</h4>
+<p>Let&rsquo;s verify a list of doubles:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">2.3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2.6</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3.0</span><span style="color:#f92672">),</span> <span style="color:#f92672">(</span>current<span style="color:#f92672">,</span> next<span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current <span style="color:#f92672">&lt;=</span> next<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res1<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">2.3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2.2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3.0</span><span style="color:#f92672">),</span> <span style="color:#f92672">(</span>current<span style="color:#f92672">,</span> next<span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current <span style="color:#f92672">&lt;=</span> next<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res2<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It works! 😄</p>
+<h4 id="223-verifying-sorting-in-a-list-of-boolean">2.2.3 Verifying sorting in a list of Boolean</h4>
+<p>How about booleans?</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">),</span> <span style="color:#f92672">(</span>current<span style="color:#f92672">,</span> next<span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current <span style="color:#f92672">&lt;=</span> next<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res1<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It also works!</p>
+<h4 id="224-verifying-sorting-in-a-list-of-string">2.2.4 Verifying sorting in a list of String</h4>
+<p>We can even apply the same comparison function to a list of strings due to Scala has an implementation for comparison operators for <code>String</code>:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;aa&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;bb&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;cc&#34;</span><span style="color:#f92672">),</span> <span style="color:#f92672">(</span>current<span style="color:#f92672">,</span> next<span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current <span style="color:#f92672">&lt;=</span> next<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res1<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;aa&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;bb&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;cccccc&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;cc&#34;</span><span style="color:#f92672">),</span> <span style="color:#f92672">(</span>current<span style="color:#f92672">,</span> next<span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current <span style="color:#f92672">&lt;=</span> next<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res2<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;aa&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;bb&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;bbbbbb&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;cc&#34;</span><span style="color:#f92672">),</span> <span style="color:#f92672">(</span>current<span style="color:#f92672">,</span> next<span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current <span style="color:#f92672">&lt;=</span> next<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res3<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="2241-verifying-sorting-based-on-strings-length">2.2.4.1 Verifying sorting based on string&rsquo;s length</h5>
+<p>What if we want to verify if a list of strings is sorted by the length of its strings elements?</p>
+<p><code>List(&quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot;)</code> is <code>true</code>?</p>
+<p>It&rsquo;s possible, but we need to provide a different comparison function:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> ascendentLengthOrder <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>current<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span><span style="color:#f92672">,</span> next<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">=&gt;</span> current<span style="color:#f92672">.</span>length <span style="color:#f92672">&lt;=</span> next<span style="color:#f92672">.</span>length
+
+</code></pre></td></tr></table>
+</div>
+</div><p>and then:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;aa&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;aaa&#34;</span><span style="color:#f92672">),</span> ascendentLengthOrder<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res1<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+
+scala<span style="color:#f92672">&gt;</span> isSorted<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;aaaa&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;aaa&#34;</span><span style="color:#f92672">),</span> ascendentLengthOrder<span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> res40<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3-conclusion">3. Conclusion</h2>
+<p>In this post, we explored a powerful technique in the <strong>Functional Programming</strong> paradigm.</p>
+<p>First, we started analyzing a simple function that verifies if a list of integers is sorted or not. This function is pretty much similar in structure and functionality to any other functions that we write in our daily job. Then we continued applying some changes to make it more flexible and scalable using the <em>Polymorphic Function</em> paradigm through <em>generic</em> type parameters.</p>
+<p><em>Polymorphic Functions</em> can be used to reduce code duplication and generalize the behavior of a function for a common set of types. We just need to start considering an initial type and then start iterating over the next types we want to support.</p>
+
+  </article>
+</section>
+
+  
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2015 -
+        
+        2022
+         • Juan Sandoval • 
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>
