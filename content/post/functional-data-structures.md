@@ -1,7 +1,7 @@
 ---
 title: "Functional data structures"
 description: "How to implement functional data structures in Scala (FPIS series)"
-date: 2022-03-25T09:52:38-07:00
+date: 2022-03-29T06:52:38-07:00
 tags: ["Scala", "functional-programming", "functional-data-structure", "recursion", "tail-recursion", "pattern-matching"]
 categories: ["Development", "functional-programming"]
 draft: false
@@ -23,16 +23,16 @@ draft: false
 
 ## 1. Introduction
 ### 1.1 What is a *Functional Data Structure*?
-First, let's start with the definition of *Data Structure*. When we start learning programming in any high level language we learn about *data structures*. A *Data Structure* is a component that allows us to *store* and *minupulate* certain data in a specific and efficient way. 
+First, let's start with the definition of *Data Structure*. When we start learning programming in any high-level language we learn about *data structures*. A *Data Structure* is a component that allows us to *store* and *manipulate* certain data in a specific and efficient way. 
 
-For example, in Scala, `Array`, `List`, `Map`, `Set` are *data structures* that allow us to store and manipulate data (elements) in a certain way. What data structure choose? it depends on the problem we want to solve. Do we require: Fast acces?, Fast storing?, Allow dupplicate elements?, etc.
+In Scala, for example, `Array`, `List`, `Map`, `Set` are *data structures* that allow us to store and manipulate data (elements) in a certain way. What data structure choose? it depends on the problem we want to solve. Do we require: Fast access?, Fast storing?, Allow duplicate elements?, etc.
 
-A **Functional Data Structure** is implmented by *pure functions*. A *pure function* is a function that must not perform any side effect. A *Functional Data Structure* is **immutable** by definition. 
+A **Functional Data Structure** is implemented by *pure functions*. A *pure function* is a function that must not perform any side effect. A *Functional Data Structure* is **immutable** by definition. 
 
 **Note:** You can copy/paste the code and run it in the *Scala REPL*. The code is written in *Scala 3* new syntax but we are not using any new Scala 3 feature.
 
 ### 1.2 How does a *Functional Data Structure* work?
-A *Functional Data Structure* is immutable. Every time we add or remove elements, a new instance of the data structure is returned. This is called **data sharing**. This new instance has only references to the original data. No new data is created. If we apply another operation on the data structure, a new instance is returned with pointers to the original data. In *Functional Data Structures* existing references are neveer changed by operations on the data structure.
+A *Functional Data Structure* is immutable. Every time we add or remove elements, a new instance of the data structure is returned. This is called **data sharing**. This new instance has only references to the original data. No new data is created. If we apply another operation to the data structure, a new instance is returned with pointers to the original data. In *Functional Data Structures*, existing references are never changed by operations on the data structure.
 
 ## 2. *Linked list* as a functional data structure
 Let's create a **functional data structure** `FList`. `FList` is a single linked list implemented as a functional data structure.
@@ -45,7 +45,7 @@ case object Nil extends FList[Nothing]
 case class Node[A](head: A, tail: FList[A]) extends FList[A]
 ```
 
-The *trait* `FList[+A]` represents our new type of our data structure. So eventually, we will be able to do something like this:
+The *trait* `FList[+A]` represents the new type of our data structure. So eventually, we will be able to do something like this:
 
 ```scala
 val myFList: FList[String] = ???
@@ -61,14 +61,14 @@ scala> var myFList: FList[String] = Nil
 var myFList: FList[String] = Nil
 ```
 
-Because `Nil` is `FList[Nothing]` which is a subtype of `FList[String]`. And then, we can reassign `myFList` to a new `FList[String]` as follows:
+Because `Nil` is `FList[Nothing]` which is a subtype of `FList[String]`. And then, we can re-assign `myFList` to a new `FList[String]` as follows:
 
 ```scala
 scala> myFList = Node("a", Nil)
 myFList: FList[String] = Node(a,Nil)
 ```
 
-This is the reason why we needed to make it *covariant*. A linked list allways points to `Nil` in the last element or is `Nil` if is an empty list.
+This is the reason why we needed to make it *covariant*. A linked list always points to `Nil` in the last element or is `Nil` if is an empty list.
 
 ### 2.1 Factory method
 Now, let's create a *factory method* to simplify the way we create instances of our functional data structure `FList`. In Scala, we have *companion objects* for this purpose.
@@ -80,7 +80,7 @@ object FList:
     else Node(elements.head, apply(elements.tail: _*))
 ```
 
-**Note:** If you aren't so familiar with *companion objects* and `apply` method I suggest you to take a look to the Scala documentation.
+**Note:** If you aren't so familiar with *companion objects* and `apply` method I suggest you take a look at the Scala documentation.
 
 It's time to create our first empty *FList*:
 
@@ -116,7 +116,7 @@ object FList:
       case Nil => throw new java.util.NoSuchElementException
 ```
 
-`head` function is implemented as a member of our `FList` *companion object*. It receives the list and returns the first element of the list using *pattern matching* technique, if the list matches the case (the list has a `Node`), then the `head` is returned, otherwise it throws a `NoSuchElementException` if the given list is empty.
+The `head` function is implemented as a member of our `FList` *companion object*. It receives the list and returns the first element of the list using the *pattern matching* technique, if the list matches the case (the list has a `Node`), then the `head` is returned, otherwise it throws a `NoSuchElementException` if the given list is empty.
 
 Let's test it.
 
@@ -156,7 +156,7 @@ object FList:
       case Nil => throw new UnsupportedOperationException
 ```
 
-`tail` function is also implemented as a member of our `FList` *companion object*. It receives the list and returns the rest of the elements without the first element (`head`) using *pattern matching* technique, if the list matches the case (the list has a `Node`) then the `tail` is returned, otherwise it throws an `UnsupportedOperationException` if the given list is empty.
+The `tail` function is also implemented as a member of our `FList` *companion object*. It receives the list and returns the rest of the elements without the first element (`head`) using *pattern matching* technique, if the list matches the case (the list has a `Node`) then the `tail` is returned, otherwise it throws an `UnsupportedOperationException` if the given list is empty.
 
 Let's test it.
 
@@ -200,11 +200,11 @@ java.lang.UnsupportedOperationException
 It works as expected, you can't get the *tail* of an empty list.
 
 ### 2.4 Adding elements (prepend)
-Let's implement a function to insert an element as the first element of list (prepend). This operation is easy to implement and it takes *constant runtime complexity*. 
+Let's implement a function to insert an element as the first element of a list (prepend). This operation is easy to implement and it takes *constant runtime complexity*. 
 
 **Note:** *If we would want to insert the element after the current last element, then we would need to implement something more complex that runs on O(n) because we would need to iterate all the elements of the list.*
 
-I will name this function `setHead` just to simplify naming. `setHead` will basically insert a new element at the begining of the list (list's *head*).
+I will name this function `setHead` just to simplify naming. `setHead` will basically insert a new element at the beginning of the list (list's *head*).
 
 ```scala
 object FList:
@@ -214,7 +214,7 @@ object FList:
       case Nil => Node(element, Nil)
 ```
 
-We are using *pattern matching* again. If the list is not empty, then we just return a new `Node` (list) where *head* is the given element and the *tail* is the given list, otherwise we return the given element pointing to `Nil`, in other words a single element list.
+We are using *pattern matching* again. If the list is not empty, then we just return a new `Node` (list) where the *head* is the given element and the *tail* is the given list, otherwise, we return the given element pointing to `Nil`, in other words, a single element list.
 
 Let's start with an empty list case and add a first element `"b"` and then add another first element `"a"`.
 
@@ -232,12 +232,12 @@ scala> mySingleFList
 val res1: FList[String] = Node(b,Nil)
 ```
 
-As you can see, elements are added at the begining of the list. Also, check that `mySingleFList` remains immutable (`line 10`).
+As you can see, elements are added at the beginning of the list. Also, check that `mySingleFList` remains immutable (`line 10`).
 
 ### 2.5 Dropping elements
 Our *functional data structure* `FList` is almost complete in terms of its basic operations. Now, we are going to implement a function to remove elements from the list.
 
-In this case, I want to drop all the elements (starting from the begining) while a provided given function `A => Boolean` is true. All the initial elements that evaluates `true` for the given function will be removed from the list (`dropWhile`). 
+In this case, I want to drop all the elements (starting from the beginning) while a provided given function `A => Boolean` is true. All the initial elements that evaluate `true` for the given function will be removed from the list (`dropWhile`). 
 
 Let's implement the `dropWhile` function:
 
@@ -251,9 +251,9 @@ object FList:
 
 In this case, we are taking two parameters:
   * `flist`: The list.
-  * `func`: The function of type `A => Boolean` that will be appliead to each element starting from the begining and if it evaluates to `true` then the element will be removed from the list, otherwise we stop and return the remaining elements.
+  * `func`: The function of type `A => Boolean` that will be applied to each element starting from the beginning and if it evaluates to `true` then the element will be removed from the list, otherwise we stop and return the remaining elements.
 
-Again, with *pattern matching* we evaluate the list. If there's an element (`case Node(head, tail)`) then we apply the function `func` to the *current* element (`head`), if the result of `func` is `true` then we *drop* the current element (`head`) and call `dropWhile` *recursively* with *tail* as the *new list*. If the condition continues evaluating as `true`, then we continue removing elements, otherwise the list is returned.
+Again, with *pattern matching*, we evaluate the list. If there's an element (`case Node(head, tail)`) then we apply the function `func` to the *current* element (`head`), if the result of `func` is `true` then we *drop* the current element (`head`) and call `dropWhile` *recursively* with the *tail* as the *new list*. If the condition continues evaluating as `true`, then we continue removing elements, otherwise, the list is returned.
 
 Let's test our `dropWhile` function:
 
@@ -270,16 +270,16 @@ val res2: FList[String] = Node(amazon,Node(apple,Node(google,Node(microsoft,Node
 
 In `line 1` I'm creating a list of companies `FList[String]` and all the elements are defined in a way that they are sorted by their name. 
 
-In `line 4` I'm calling the `dropWhile` function and passing the function `company => company.charAt(0) < 'm'` of type `String => Boolean` which basically takes the first character of each company name and evaluates if the character is less than `'m'`. If it evaluates to `true`, then the company will be removed. As you can see in `line 5` the result of this operation is `FList("microsoft", "oracle")`. 
+In `line 4` I'm calling the `dropWhile` function and passing the function `company => company.charAt(0) < 'm'` of type `String => Boolean` which takes the first character of each company name and evaluates if the character is less than `'m'`. If it evaluates to `true`, then the company will be removed. As you can see in `line 5` the result of this operation is `FList("microsoft", "oracle")`. 
 
-In `line 7` I'm *evaluating* `companies` in the REPL just to verify that the given list `companies` remains immutable. 
+In `line 7` I'm *evaluating* `companies` in the REPL just to verify that the given list `companies` remain immutable. 
 
 ## 3. Conclusion
-In this post we explored another powerful technique in the **Functional Programming** paradigm: the **Functional Data Structures**. 
+In this post, we explored another powerful technique in the **Functional Programming** paradigm: the **Functional Data Structures**. 
 
-*Functional Data Structures* allow us to create new data structures that are immutable by design. We also implemented a *linked list* `FList` in terms of a **functional data structure**. We defined its *interface* as a new *type* and implemented some basic operations with pure functions applying other techniques as *pattern matching* and *recursion*.
+*Functional Data Structures* allow us to create new data structures that are immutable by design. We also implemented a *linked list* `FList` in terms of a **functional data structure**. We defined its *interface* as a new *type* and implemented some basic operations with pure functions applying other techniques such as *pattern matching* and *recursion*.
 
-A powerful aspect of **Scala** is that it brings *Functional Programming* and *Object Oriented Programming* paradigms togheter, this allows us to provide a more *object oriented design* to our `FList` data structure to encapsulate the code in a *better way*. In my next post I'll talk about it and how you can *use* our `FList` in the same way that the Scala collections are built, so you should be able to do something like this `val myFList = FList("a", "b", "c")` and get the *tail* in this way `myFList.tail`.
+A powerful aspect of **Scala** is that it brings *Functional Programming* and *Object-Oriented Programming* paradigms together, this allows us to provide a more *object-oriented design* to our `FList` data structure to encapsulate the code in a *better way*. In my next post, I'll talk about it and how you can *use* our `FList` in the same way that the Scala collections are built, so you should be able to do something like this `val myFList = FList("a", "b", "c")` and get the *tail* in this way `myFList.tail`.
 
 ## 4. Code
 This is the full code I used. It includes other operations and tests that I didn't explain in this post.
