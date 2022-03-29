@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 13 Jan 2022 15:49:28 -0800</lastBuildDate><atom:link href="https://juanitodread.github.io/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Mar 2022 20:52:38 -0700</lastBuildDate><atom:link href="https://juanitodread.github.io/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functional data structures</title>
+      <link>https://juanitodread.github.io/post/functional-data-structures/</link>
+      <pubDate>Mon, 28 Mar 2022 20:52:38 -0700</pubDate>
+      
+      <guid>https://juanitodread.github.io/post/functional-data-structures/</guid>
+      <description>1. Introduction  1.1 What is a Functional Data Structure? 1.2 How does a Functional Data Structure work?   2. Linked list as a functional data structure  2.1 Factory method 2.2 Head 2.3 Tail 2.4 Adding elements (prepend) 2.5 Dropping elements   3. Conclusion 4. Code  4.1 FList implementation 4.2 FList unit test    1. Introduction 1.1 What is a Functional Data Structure? First, let&amp;rsquo;s start with the definition of Data Structure.</description>
+    </item>
+    
     <item>
       <title>Polymorphic functions in Scala</title>
       <link>https://juanitodread.github.io/post/polymorphic-functions-in-scala/</link>
