@@ -1,7 +1,7 @@
 ---
 title: "Functional data structures"
 description: "How to implement functional data structures in Scala (FPIS series)"
-date: 2022-03-29T06:52:38-07:00
+date: 2022-03-28T20:52:38-07:00
 tags: ["Scala", "functional-programming", "functional-data-structure", "recursion", "tail-recursion", "pattern-matching"]
 categories: ["Development", "functional-programming"]
 draft: false
