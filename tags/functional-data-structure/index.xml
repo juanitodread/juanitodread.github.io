@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>functional-data-structure on @juanitodread</title>
+    <link>https://juanitodread.github.io/tags/functional-data-structure/</link>
+    <description>Recent content in functional-data-structure on @juanitodread</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 28 Mar 2022 20:52:38 -0700</lastBuildDate><atom:link href="https://juanitodread.github.io/tags/functional-data-structure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functional data structures</title>
+      <link>https://juanitodread.github.io/post/functional-data-structures/</link>
+      <pubDate>Mon, 28 Mar 2022 20:52:38 -0700</pubDate>
+      
+      <guid>https://juanitodread.github.io/post/functional-data-structures/</guid>
+      <description>1. Introduction  1.1 What is a Functional Data Structure? 1.2 How does a Functional Data Structure work?   2. Linked list as a functional data structure  2.1 Factory method 2.2 Head 2.3 Tail 2.4 Adding elements (prepend) 2.5 Dropping elements   3. Conclusion 4. Code  4.1 FList implementation 4.2 FList unit test    1. Introduction 1.1 What is a Functional Data Structure? First, let&amp;rsquo;s start with the definition of Data Structure.</description>
+    </item>
+    
+  </channel>
+</rss>
