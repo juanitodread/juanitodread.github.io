@@ -7,16 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 02 Oct 2015 00:28:02 -0500</lastBuildDate><atom:link href="https://juanitodread.github.io/pages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Oct 2015 00:28:02 -0500</lastBuildDate>
+    <atom:link href="https://juanitodread.github.io/pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://juanitodread.github.io/pages/cv/</link>
       <pubDate>Fri, 02 Oct 2015 00:28:02 -0500</pubDate>
-      
       <guid>https://juanitodread.github.io/pages/cv/</guid>
-      <description>Juan Antonio Sandoval Delgado Software Engineer — San Francisco Bay Area
-Computer Systems Engineering at Instituto Tecnológico de Tepic in México (2005 - 2009). Working as a software developer focused on web technologies with experience designing and building a variety of systems for services, financial, and health sectors since 2009. A passionate engineer who enjoys learning new technologies, be involved in open source projects, courses, and initiatives in my region.</description>
+      <description>Juan Antonio Sandoval Delgado Link to heading Software Engineer — San Francisco Bay Area&#xA;Computer Systems Engineering at Instituto Tecnológico de Tepic in México (2005 - 2009). Working as a software developer focused on web technologies with experience designing and building a variety of systems for services, financial, and health sectors since 2009. A passionate engineer who enjoys learning new technologies, be involved in open source projects, courses, and initiatives in my region.</description>
     </item>
-    
   </channel>
 </rss>
