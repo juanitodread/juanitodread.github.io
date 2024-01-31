@@ -1,10 +1,10 @@
-baseurl = "https://juanitodread.github.io/"
+baseURL = "https://juanitodread.github.io/"
 languageCode = "en-us"
-defaultcontentlanguage = "en"
-MetaDataFormat = "toml"
-contentdir = "content"
-publishdir = "public"
-builddrafts = false
+defaultContentLanguage = "en"
+metaDataFormat = "toml"
+contentDir = "content"
+publishDir = "public"
+buildDrafts = false
 title = "@juanitodread"
 theme = "hugo-coder"
 copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
@@ -19,25 +19,23 @@ pygmentsOptions = "linenos=table,linenostart=1"
 
 disqusShortname = "juanitodread"
 
-[author]
-    name = "Juan Antonio Sandoval Delgado"
 [indexes]
     category = "categories"
     tag = "tags"
-[Params]
+[params]
     author = "• Juan Sandoval •"
     info = "Software Developer Engineer"
     description = "Juan Sandoval's personal website"
     keywords = "blog,developer,personal"
-    avatarurl = "/images/me.jpg"
+    avatarURL = "/images/me.jpg"
     since = 2015
 
-    dateformat = "January 2, 2006"
+    dateFormat = "January 2, 2006"
 
-    footercontent = ""
+    footerContent = ""
 
     hideFooter = false
-    hidecredits = true
+    hideCredits = true
     hidecopyright = false
 
     # Specify light/dark colorscheme
@@ -68,27 +66,27 @@ disqusShortname = "juanitodread"
     series = "series"
     tag = "tags"
 
-[[Params.social]]
+[[params.social]]
     name = "Github"
     icon = "fab fa-github"
     weight = 1
     url = "https://github.com/juanitodread/"
-[[Params.social]]
+[[params.social]]
     name = "LinkedIn"
     icon = "fab fa-linkedin"
     weight = 2
     url = "https://www.linkedin.com/in/juanitodread/"
-[[Params.social]]
+[[params.social]]
     name = "StackOverflow"
     icon = "fab fa-stack-overflow"
     weight = 4
     url = "https://stackoverflow.com/users/362937/juanitodread"
-[[Params.social]]
+[[params.social]]
     name = "Medium"
     icon = "fab fa-medium"
     weight = 5
     url = "https://medium.com/@juanitodread"
-[[Params.social]]
+[[params.social]]
     name = "Flickr"
     icon = "fab fa-flickr"
     weight = 6
